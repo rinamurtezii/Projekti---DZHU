@@ -1,0 +1,425 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+}
+nav{
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+nav a:hover{
+    color: #ff8a3d;      
+    background-color: transparent;;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+nav li:first-child a{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 22px;
+    font-weight: 600; 
+}
+nav button{
+    padding: 8px 18px;
+    border: 2px solid #ff8a3d;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff8a3d;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+nav button:hover{
+    background-color: #ff8a3d;
+    color: white;
+}
+.logo img{
+    height: 24px;
+    width: auto;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo{
+    margin-left: 20px;
+}
+/*Deri ketu ishte dizajnimi i Navigation Bar*/
+/*Fillon Home*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: white;
+    gap: 50px;
+
+}
+.home.teksti{
+    flex: 45%;
+    max-width: 350px;
+}
+.home.imazhi1{
+    flex: 45%;
+    max-width: 350px;
+}
+.home.imazhi{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+.teksti h1{
+    margin-left: 40px;
+    font-family: "Fredoka" , sans-serif;
+    font-size: 5rem;
+    margin-bottom: 15px;
+}
+.teksti p{
+    font-family:"Fredoka" , sans-serif;
+    margin-left: 40px;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+#butoni{
+    background-color: #ff8a3d;
+    color: white;
+    font-size: 2rem;
+    font-family:"Poppins", sans-serif;
+    padding: 30px 45px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: #ff8a3d;
+    cursor: pointer;
+}
+#butoni:hover{
+    background-color: rgb(208, 161, 60);
+}
+footer{
+    background-color: #ff8a3d;
+    color: white;
+    padding: 40px 20px;
+}
+.kuti {
+    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+.rreshti{
+    display: flex;
+    font-family:"Poppins", sans-serif;
+    align-items: center;
+    gap: 10px;
+}
+#imfoot{
+    width: 45px;
+}
+.emri {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.shkrimi{
+    margin-top: 14px;
+    max-width: 450px;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-family:"Fredoka" , sans-serif;
+}
+.kolonapar{
+    font-family:"Poppins", sans-serif;
+}
+.kolonapar ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonatret ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt{
+    font-family:"Poppins", sans-serif;
+}
+.kolonatret{
+    font-family:"Poppins", sans-serif;
+}
+.titullipar{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.titullidyt{
+    font-family:"Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.titullitret{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.fundi{
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 18px;
+    font-size: 0.9rem;
+}
+.ikonat{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+    gap: 10px;
+}
+.sektorimajtas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sektorimajtas img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.pc {
+    font-size: 40px;
+    color:black;
+    margin: 0;
+    font-family: "Fredoka" , sans-serif;
+}
+.lead{
+    font-family:"Poppins", sans-serif;
+    font-size:35px;
+    text-align:left;
+    max-width: 1500px;
+}
+.about{
+    max-width: 2100px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
+                0px -8px 20px rgba(0,0,0,0.06);
+}
+.fotoabout img{
+    width: 600px;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
+}
+.maj{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.sektoriiekipes {
+    margin: auto;
+    padding: 30px 30px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
+                0px -8px 20px rgba(0,0,0,0.06);
+}
+.Team {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.tt {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color:black;
+    font-family: "Fredoka" , sans-serif;
+}
+
+.Puntoret {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.teamc {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: .2s ease;
+    flex-shrink: 0;
+}
+
+.teamc:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+.team-photo {
+    width: 70%;
+    height: 70%;
+    padding-bottom: 70%;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.team-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.team-name {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color:black;
+    font-family:"Poppins", sans-serif;
+}
+.team-role {
+    font-size: 14px;
+    color:rgb(95, 85, 85);
+    margin-top: 12px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+.tekstMeet{
+    font-size: 22px;
+    font-family:"Poppins", sans-serif;
+    text-align: center;
+    margin-bottom: 16px;
+}
+.success-stories{
+    padding: 80px 30px;
+    text-align: center;
+    background-color: #fffaf0;
+    width: 100%;
+}
+
+.success-title{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.success-subtitle{
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.stories-grid{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.story-card{
+    background-color: #fff7dd;
+    width: 330px;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.story-avatar{
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.story-name{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+}
+
+.story-pet{
+      font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.story-text{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Optional decorative quote mark */
+.story-card::after{
+    content: "❞";
+    font-size: 32px;
+    color: #e0c88f;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
