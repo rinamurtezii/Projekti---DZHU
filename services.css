@@ -95,13 +95,13 @@ nav button:hover{
 
 .sale-text h1{
     font-family:"Fredoka" , sans-serif;
-    font-size: 60px;
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
 .sale-text p{
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     color: rgb(95, 85, 85);
 }
 /*Fillon pjesa e features*/
@@ -117,7 +117,6 @@ nav button:hover{
     gap: 24px;
     flex-wrap: wrap;
 }
-
 .feature-card{
     flex: 1 1 260px;
     background-color: #ff8a3d;
@@ -127,7 +126,13 @@ nav button:hover{
     align-items: center;
     gap: 16px;
 }
-
+.feature-card:hover{
+    background-color: white;
+}
+.feature-card:hover .feature-text h3,
+.feature-card:hover .feature-text p {
+    color: #ff8a3d;
+}
 .feature-img{
     width: 48px;
     height: 48px;
@@ -149,6 +154,152 @@ nav button:hover{
     font-size: 16px;
     color: white;
 }
+/*Fillon pjesa e section our shop*/
+.our-shop{
+    text-align: center;
+    padding: 60px 20px;
+
+}
+.our-shop h1{
+    font-family:"Fredoka" , sans-serif;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+.our-shop p{
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    color: rgb(95, 85, 85);
+}
+/*Dog toys and entertainment*/
+.section-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 167px;
+    margin-left: 40px;
+    margin-top: 10px;  
+    margin-bottom: 20px;  
+}
+.title-icon{
+    width: 55px;
+    height: 55px;
+    background-color: rgb(239, 235, 235);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-icon img{
+    width: 28px;   
+    height: 28px;
+}
+.section-title h2{
+    font-size: 38px;
+    font-weight: 700;
+    font-family: "Fredoka", sans-serif;
+}
+
+/*Fillon pjesa e  blerjev*/
+.products {
+  width: 100%;
+  max-width: 1500px;   
+  margin: 40px auto;
+  padding: 0 40px;    
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 60px;       
+  justify-content: center;
+}
+
+.product-card {
+  width: 380px;      
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.img-box{
+  position: relative;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.img-box img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.tag{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 12px;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.sale{ background: red; }
+.new{ background: green; }
+.popular{ background: blue; }
+
+.info{
+  padding: 20px;
+}
+
+.rating{
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.info h3{
+  margin: 6px 0;
+  font-size: 20px;
+  font-family: "Fredoka", sans-serif;
+}
+
+.info p{
+  color: rgb(95, 85, 85);
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button{
+  background-color: #ff8a3d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 /*Fillon footer*/
 footer{
     background-color: #ff8a3d;
