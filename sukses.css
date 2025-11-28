@@ -1,0 +1,241 @@
+.sukses-kutia {
+            text-align: center;
+            padding: 100px;
+            background-color:white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .sukses-kutia h1 {
+            color:black;
+            font-family:"Fredoka" , sans-serif;
+            margin-bottom: 30px;
+            font-size: 45px;
+        }
+
+        .sukses-kutia p {
+            color: #555;
+            margin-bottom: 45px;
+            font-size: 30px;
+            font-family:"Poppins", sans-serif;
+        }
+
+        .sukses-icon {
+            align-items: center;
+        }
+   
+        footer{
+    background-color: #ff8a3d;
+    color: white;
+    padding: 40px 20px;
+}
+.kuti {
+    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+.rreshti{
+    display: flex;
+    font-family:"Poppins", sans-serif;
+    align-items: center;
+    gap: 10px;
+}
+#imfoot{
+    width: 45px;
+}
+.emri {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.shkrimi{
+    margin-top: 14px;
+    max-width: 450px;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-family:"Fredoka" , sans-serif;
+}
+.kolonapar{
+    font-family:"Poppins", sans-serif;
+}
+.kolonapar ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonatret ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt{
+    font-family:"Poppins", sans-serif;
+}
+.kolonatret{
+    font-family:"Poppins", sans-serif;
+}
+.titullipar{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.titullidyt{
+    font-family:"Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.titullitret{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+.fundi{
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 18px;
+    font-size: 0.9rem;
+}
+.ikonat{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+    gap: 10px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+}
+nav{
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+nav a:hover{
+    color: #ff8a3d;      
+    background-color: transparent;;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+nav li:first-child a{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 22px;
+    font-weight: 600; 
+}
+nav button{
+    padding: 8px 18px;
+    border: 2px solid #ff8a3d;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff8a3d;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+nav button:hover{
+    background-color: #ff8a3d;
+    color: white;
+}
+.logo img{
+    height: 24px;
+    width: auto;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo{
+    margin-left: 20px;
+}
+/*Deri ketu ishte dizajnimi i Navigation Bar*/
+/*Fillon Home*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: white;
+    gap: 50px;
+
+}
+.home.teksti{
+    flex: 45%;
+    max-width: 350px;
+}
+.home.imazhi1{
+    flex: 45%;
+    max-width: 350px;
+}
+.home.imazhi{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+.teksti h1{
+    margin-left: 40px;
+    font-family: "Fredoka" , sans-serif;
+    font-size: 5rem;
+    margin-bottom: 15px;
+}
+.teksti p{
+    font-family:"Fredoka" , sans-serif;
+    margin-left: 40px;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+#butoni{
+    background-color: #ff8a3d;
+    color: white;
+    font-size: 2rem;
+    font-family:"Poppins", sans-serif;
+    padding: 30px 45px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: #ff8a3d;
+    cursor: pointer;
+}
+#butoni:hover{
+    background-color: rgb(208, 161, 60);
+}
