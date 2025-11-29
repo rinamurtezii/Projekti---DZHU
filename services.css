@@ -1,4 +1,4 @@
-{
+*{
     margin: 0;
     padding: 0;
 }
@@ -6,7 +6,7 @@ body{
     min-height: 100vh;
 }
 nav{
-    background-color: white;
+    background-color: #ff8a3d;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul{
@@ -26,12 +26,8 @@ nav a{
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: white;
     font-family: "Poppins", sans-serif;
-}
-nav a:hover{
-    color: #ff8a3d;      
-    background-color: transparent;;
 }
 nav li:first-child{
     margin-right: auto;
@@ -78,7 +74,6 @@ nav button:hover{
    padding: 40px 20px;
    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
-
 .sale-content{
     max-width: 900px;
     margin: 0 auto;
@@ -88,17 +83,14 @@ nav button:hover{
     text-align: center;    
     gap: 10px;
 }
-
 .sale-emoji{
     font-size: 48px;
 }
-
 .sale-text h1{
     font-family:"Fredoka" , sans-serif;
     font-size: 42px;
     margin-bottom: 10px;
 }
-
 .sale-text p{
     font-family: "Poppins", sans-serif;
     font-size: 24px;
@@ -107,9 +99,9 @@ nav button:hover{
 /*Fillon pjesa e features*/
 .shop{
     background: #ffffff;
-    padding: 30px 20px;
+    justify-content: space-around;
+    padding-bottom: 20px;
 }
-
 .features{
     max-width: 1100px;
     margin: 0 auto;
@@ -141,7 +133,6 @@ nav button:hover{
     border-radius: 50%;
     object-fit: contain;
 }
-
 .feature-text h3{
     font-family:"Fredoka" , sans-serif;
     font-size: 20px;
@@ -157,7 +148,7 @@ nav button:hover{
 /*Fillon pjesa e section our shop*/
 .our-shop{
     text-align: center;
-    padding: 60px 20px;
+    padding-bottom: 20px;
 
 }
 .our-shop h1{
@@ -170,15 +161,15 @@ nav button:hover{
     font-size: 24px;
     color: rgb(95, 85, 85);
 }
-/*Dog toys and entertainment*/
+/*Dog toys and entertainment, Nutritious Dog Food*/
 .section-title{
     display: flex;
     align-items: center;
     gap: 15px;
     padding-left: 167px;
-    margin-left: 40px;
+    
     margin-top: 10px;  
-    margin-bottom: 20px;  
+    margin-bottom: 10px;  
 }
 .title-icon{
     width: 55px;
@@ -200,19 +191,19 @@ nav button:hover{
 }
 
 /*Fillon pjesa e  blerjev*/
-.products {
+.products{
   width: 100%;
   max-width: 1500px;   
   margin: 40px auto;
   padding: 0 40px;    
-
   display: flex;
   flex-wrap: nowrap;
   gap: 60px;       
-  justify-content: center;
+  justify-content: space-around;
+
 }
 
-.product-card {
+.product-card{
   width: 380px;      
   border: 1px solid #ddd;
   border-radius: 20px;
@@ -221,21 +212,17 @@ nav button:hover{
   display: flex;
   flex-direction: column;
 }
-
-
 .img-box{
   position: relative;
   background: #f5f5f5;
   overflow: hidden;
 }
-
 .img-box img{
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
 }
-
 .tag{
   position: absolute;
   top: 14px;
@@ -246,43 +233,41 @@ nav button:hover{
   font-size: 14px;
   font-family: "Poppins", sans-serif;
 }
-
-.sale{ background: red; }
-.new{ background: green; }
-.popular{ background: blue; }
-
+.sale{ 
+    background: red; 
+}
+.new{
+    background: green; 
+}
+.popular{ 
+    background: blue; 
+}
 .info{
   padding: 20px;
 }
-
 .rating{
   color: gold;
   margin-bottom: 10px;
 }
-
 .info h3{
   margin: 6px 0;
   font-size: 20px;
   font-family: "Fredoka", sans-serif;
 }
-
 .info p{
   color: rgb(95, 85, 85);
   margin-bottom: 15px;
   font-family: "Poppins", sans-serif;
 }
-
 .bottom{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .price{
   font-size: 20px;
   font-weight: bold;
 }
-
 button{
   background-color: #ff8a3d;
   color: white;

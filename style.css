@@ -6,7 +6,7 @@ body{
     min-height: 100vh;
 }
 nav{
-    background-color: white;
+    background-color: #ff8a3d;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul{
@@ -26,12 +26,8 @@ nav a{
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: black;
+    color: white;
     font-family: "Poppins", sans-serif;
-}
-nav a:hover{
-    color: #ff8a3d;      
-    background-color: transparent;;
 }
 nav li:first-child{
     margin-right: auto;
@@ -113,14 +109,17 @@ nav button:hover{
     font-size: 2rem;
     font-family:"Poppins", sans-serif;
     padding: 30px 45px;
-    border-radius: 8px;
+    border-radius: 50px;
     margin-top: 20px;
     margin-left: 40px;
     border: #ff8a3d;
     cursor: pointer;
 }
 #butoni:hover{
-    background-color: rgb(208, 161, 60);
+    background-color: white;
+    color: #ff8a3d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 /*Mbaron Home*/
 /*Fillon footer*/
@@ -302,7 +301,7 @@ footer{
 }
 #h2-dogs{
    font-family: "Fredoka" , sans-serif;
-   font-size: 30px;
+   font-size: 70px;
    margin-bottom: 20px;
    text-align: center;
 }
@@ -312,28 +311,25 @@ footer{
     padding: 80px 30px;
     text-align: center;
     color: black;
-    width: 100%;
     margin: 0;
     border-radius: 0;
     box-shadow:
-        0px -8px 20px rgba(0,0,0,0.06),
-        0px 8px 20px rgba(0,0,0,0.06);
+        0px -8px 20px rgba(0,0,0,0.06);
 }
-
 .adopt-title{
-     font-family: "Fredoka" , sans-serif;
-    font-size: 42px;
+    font-family: "Fredoka" , sans-serif;
+    font-size: 70px;
     margin-bottom: 20px;
     font-weight: 700;
 }
-
-.adopt-text{font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    max-width: 600px;
+.adopt-text{
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    max-width: 1300px;
     margin: 0 auto 30px;
     line-height: 1.6;
+    color: rgb(95, 85, 85);
 }
-
 .adopt-btn{
     padding: 14px 32px;
     font-size: 16px;
@@ -345,7 +341,6 @@ footer{
     cursor: pointer;
     transition: 0.2s ease;
 }
-
 .adopt-btn:hover{
     color: #ff8a3d;
     background: #ffffff;
