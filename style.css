@@ -259,7 +259,6 @@ footer{
     font-family:"Poppins", sans-serif;
 }
 /*Ketu fillon pjesa e section meet our dogs*/
-
 .dogs-row{
     display: flex;
    /* justify-content: center;*/
@@ -268,7 +267,6 @@ footer{
     padding-bottom: 10px;
     flex-wrap: nowrap;
     scrollbar-width: none;
-
 }
 .dogs-row::-webkit-scrollbar{
     height: 0;
@@ -290,13 +288,13 @@ footer{
 .dogs h3{
     font-family: "Fredoka" , sans-serif;
     margin: 10px 0 2px;
-    font-size: 19px;
+    font-size: 22px;
     color: black;
 }
 .dogs p{
     font-family: "Poppins", sans-serif;
     margin: 0 0 10px;
-    font-size: 13px;
+    font-size: 15px;
     color: rgb(95, 85, 85);
 }
 #h2-dogs{
@@ -338,8 +336,6 @@ footer{
     border: 2px solid #e3d8ca;
     background: #ff8a3d;
     color: white;
-    cursor: pointer;
-    transition: 0.2s ease;
 }
 .adopt-btn:hover{
     color: #ff8a3d;

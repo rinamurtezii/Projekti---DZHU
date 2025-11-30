@@ -277,10 +277,48 @@ button{
   cursor: pointer;
 }
 
-
-
-
-
+/*What our costumers say*/
+.testimonials {
+  padding-bottom: 45px;
+  padding-top: 45px;
+  
+}
+.testimonials-title{
+  font-family: "Fredoka", sans-serif;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.testimonials-row {
+  display: flex;
+  justify-content: center; 
+  gap: 30px;
+  flex-wrap: wrap; /* ne ekran të vogël të bien poshtë njëra tjetrës */
+}
+.testimonial-card {
+  background: #ffffff;
+  padding: 25px;
+  max-width: 340px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+.stars {
+  font-size: 20px;
+  color: #ffc107; 
+  margin-bottom: 15px;
+}
+.testimonial-text{
+  color: rgb(95, 85, 85);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.testimonial-name{
+  font-family: "Fredoka", sans-serif;
+  font-size: 17px;
+}
 
 
 
