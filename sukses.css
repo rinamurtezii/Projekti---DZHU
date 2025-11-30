@@ -5,25 +5,23 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
-        .sukses-kutia h1 {
+ .sukses-kutia h1 {
             color:black;
             font-family:"Fredoka" , sans-serif;
             margin-bottom: 30px;
             font-size: 45px;
-        }
+ }
 
-        .sukses-kutia p {
+ .sukses-kutia p {
             color: #555;
             margin-bottom: 45px;
             font-size: 30px;
             font-family:"Poppins", sans-serif;
         }
-
-        .sukses-icon {
+ .sukses-icon {
             align-items: center;
-        }
-   
-        footer{
+}
+footer{
     background-color: #ff8a3d;
     color: white;
     padding: 40px 20px;

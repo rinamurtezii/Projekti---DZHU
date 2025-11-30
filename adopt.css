@@ -248,91 +248,7 @@ footer{
     background:white;
     color:#ff8a3d;
 }
-.procesiadoption {
-    max-width: 1650px;
-    margin: 60px auto;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-}
-.procesiadoption h2 {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: "Fredoka", sans-serif;
-    margin-bottom: 10px;
-    color: #000;
-}
-.procesiadoption p {
-    font-size: 20px;
-    color: #333;
-    max-width: 1000px;
-    margin: 0 auto 40px;
-    font-family: "Poppins", sans-serif;
-}
-.kolona1{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolona2{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolona3{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolona4{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolona5{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolona6{
-    box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
-                0px -8px 20px rgba(0,0,0,0.06);
-                padding: 20px;
-                border-radius: 8px;
-}
-.kolonat {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 30px;
-}
-.kolonat img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-.kolonat h3 {
-    font-size: 22px;
-    font-weight: 700;
-    font-family: "Fredoka", sans-serif;
-    margin-bottom: 12px;
-    color:black;
-}
-.kolonat p {
-    font-size: 20px;
-    color: #555;
-    line-height: 1.6;
-    font-family: "Poppins", sans-serif;
-    margin: 0 auto;
-}
+
 .start{
     width: 20%;
     margin: auto;
@@ -441,33 +357,16 @@ footer{
     background:white;
     color: #ff8a3d;
 }
-.butonibrowse{
-    width:25%;
-    padding: 10px;
-    background:#ff8a3d;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-    text-align: center;
-    display: block;
-    margin: 20px auto;
-}
-.butonibrowse:hover{
-    background:white;
-    color: #ff8a3d;
-}
 .req {
     max-width: 1650px;  
     border-radius: 8px;
     margin: 0 auto;     
     padding: 50px 20px;
-    text-align: center; 
 }
-
+.req-teksti{
+    text-align: center;
+    margin-bottom: 20px;
+}
 .req-teksti h1 {
     font-size: 40px;
     margin-bottom: 10px;
@@ -482,29 +381,28 @@ footer{
 }
 .req-rreshtat {
     display: flex;
-    align-items:left;
+    align-items:flex-start;
     gap: 20px;       
-    margin-bottom: 25px;
-    justify-content: left; 
-    padding: 8px;
-    height: 100%;
+    margin-bottom: 20px;
 }
 
 .req-rreshtat img {
-    width: 50px;      
-    height: 50px;
+    width: 40px;      
+    height: 40px;
 }
-
-.req-rreshtat h3 {
+.req-rreshtat .teksthp{
+    display: flex;
+    flex-direction: column;
+}
+.req-rreshtat .teksthp h3{
     margin: 0;
     font-size: 20px;
-    font-family: "Fredoka", sans-serif;
+    font-family:"Fredoka", sans-serif;
 }
-
-.req-rreshtat p {
+.req-rreshtat .teksthp p {
+    margin: 3px 0 0 0; 
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    margin: 0;
+    font-size: 18px;
     color: #666;
 }
 .req-shadow{
@@ -512,4 +410,58 @@ footer{
     padding: 30px;
     box-shadow: 0px -8px 20px rgba(0,0,0,0.06),
                 0px -8px 20px rgba(0,0,0,0.06);
+}
+.procesiadoption {
+    background:#ff8a3d;
+    padding: 70px 20px;
+    text-align: center;
+    color: #fff; 
+}
+
+.procesiadoption h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: "Fredoka", sans-serif;
+}
+
+.procesiadoption p {
+    font-size: 20px;
+    margin-bottom: 50px;
+    font-family: "Poppins", sans-serif;
+}
+.kolonat {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+}
+
+.kolonat > div {
+    background: #ffffff;
+    width: 330px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.kolonat img {
+    width: 70px;
+    margin-bottom: 20px;
+}
+
+.kolonat h3 {
+    font-family: "Fredoka", sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: black;
+}
+.kolonat p {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+.kolonat > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.25);
 }
