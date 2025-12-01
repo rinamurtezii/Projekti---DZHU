@@ -67,7 +67,7 @@ nav button:hover{
     margin-left: 20px;
 }
 /*Deri ketu ishte dizajnimi i Navigation Bar*/
-/*Fillon shiriti*/
+/*Fillon shiriti
 .sale-banner{ 
    background-color: white;
    color: black;
@@ -95,7 +95,7 @@ nav button:hover{
     font-family: "Poppins", sans-serif;
     font-size: 24px;
     color: rgb(95, 85, 85);
-}
+}*/
 /*Fillon pjesa e features*/
 .shop{
     background: #ffffff;
@@ -149,6 +149,7 @@ nav button:hover{
 .our-shop{
     text-align: center;
     padding-bottom: 20px;
+    border: 1px ;
 
 }
 .our-shop h1{
@@ -205,7 +206,7 @@ nav button:hover{
 
 .product-card{
   width: 380px;      
-  border: 1px solid #ddd;
+  border: 3px solid  rgb(252, 245, 245);
   border-radius: 20px;
   background: #fff;
   overflow: hidden;
@@ -251,13 +252,14 @@ nav button:hover{
 }
 .info h3{
   margin: 6px 0;
-  font-size: 20px;
+  font-size: 25px;
   font-family: "Fredoka", sans-serif;
 }
 .info p{
   color: rgb(95, 85, 85);
   margin-bottom: 15px;
   font-family: "Poppins", sans-serif;
+  font-size: 15px;
 }
 .bottom{
   display: flex;
