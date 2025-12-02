@@ -203,7 +203,6 @@ nav button:hover{
   justify-content: space-around;
 
 }
-
 .product-card{
   width: 380px;      
   border: 3px solid  rgb(252, 245, 245);
@@ -292,20 +291,23 @@ button{
   font-weight: 700;
   margin-bottom: 40px;
 }
-.testimonials-row {
+.testimonials-row{
   display: flex;
   justify-content: center; 
   gap: 30px;
-  flex-wrap: wrap; /* ne ekran të vogël të bien poshtë njëra tjetrës */
+  flex-wrap: wrap; 
 }
-.testimonial-card {
+.testimonial-card{
   background: #ffffff;
   padding: 25px;
   max-width: 340px;
   border-radius: 18px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
-.stars {
+.testimonial-card:hover{
+    transform: translateY(-8px);
+}
+.stars{
   font-size: 20px;
   color: #ffc107; 
   margin-bottom: 15px;

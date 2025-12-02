@@ -429,15 +429,14 @@ footer{
     font-family: "Poppins", sans-serif;
 }
 
-.mission-vision-container {
+.mission-vision-container{
     display: flex;
     justify-content: center;
     gap: 40px;
     padding: 40px 20px;
-    flex-wrap: wrap;  /* që në telefon të shkojnë poshtë */
+    flex-wrap: wrap;  
 }
-
-.card {
+.card{
     width: 45%;
     background: #ff8a3d;
     padding: 30px;
@@ -445,15 +444,13 @@ footer{
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border: 1px solid #eee;
 }
-
 .card h2{
     font-family: "Fredoka" , sans-serif;
     font-size: 42px;
     color: white;
     margin-bottom: 15px;
 }
-
-.card p {
+.card p{
     font-family: "Poppins", sans-serif;
     color: white;
    /* color:rgb(95, 85, 85);*/

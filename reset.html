@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
+ <nav>
         <ul>
         <li class="logo"><a href="#">
             <img src="Logo.png" alt="PawCare Logo">PawCare
@@ -19,10 +19,14 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="adopt.html">Adopt</a></li>
+        <a href="login.html">
         <button type="button">Sign In</button>
+    </a>
         </ul>
     </nav>
-    <br>
+<br><br>
+
+
 
   <div class="kryesorja">
     <div class="wrap">
@@ -34,33 +38,24 @@
         <p class="lead">Your journey to finding a furry friend</p>
       </div>
       <main class="card">
-        <h2 id="signin">Sign In</h2>
-        <p class="shkurt">Welcome back! Please sign in to continue</p>
+        <h2 id="signin">Forgot Password</h2>
+        <p class="shkurt">Check your email for a password reset link</p>
 
-        <form class="forma">
-          <div class="fushat">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" required>
-          </div>
+        <div class="blue-box">
+        We've sent a password reset link to <b>your email</b>.
+        Please check your inbox and follow the instructions to reset your password.
+    </div>
 
-          <div class="fushat">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" required>
-          </div>
-
-          <div class="forgot">
-            <a href="forgotpassword.html" class="linktjt">Forgot password?</a>
-          </div>
-
-          <button class="btn" type="submit">Sign In</button>
-
-          <div class="note">Don't have an account? <a href="register.html" class="link-accent">Create one</a></div>
-        </form>
+    <button class="send-again">Send Another Link</button>
+    <a class="back" href="login.html">Back to Sign In</a>
+        
       </main>
 
     </div>
 
-     <footer>
+
+
+<footer>
     <div class="kuti">
 
     <div class="majtas">
@@ -105,8 +100,6 @@
     <p> &copy: 2025 PawCare. All rights reserved.Made with love for pets.</p>
 </div>
 </div>
-
 </footer>
-    
 </body>
 </html>

@@ -1,76 +1,75 @@
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 body{
-    min-height: 100vh;
+  min-height: 100vh;
 }
 nav{
-    background-color: #ff8a3d;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ff8a3d;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 nav ul{
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
 }
 nav li{
-    height: 50px;
+  height: 50px;
 }
 nav a{
-    height: 100%;
-    padding: 0;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: white;
-    font-family: "Poppins", sans-serif;
+  height: 100%;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
 }
 nav li:first-child{
-    margin-right: auto;
+  margin-right: auto;
 }
 nav li:first-child a{
-    font-family: "Fredoka" , sans-serif;
-    font-size: 22px;
-    font-weight: 600; 
+  font-family: "Fredoka" , sans-serif;
+  font-size: 22px;
+  font-weight: 600; 
 }
 nav button{
-    padding: 8px 18px;
-    border: 2px solid #ff8a3d;
-    border-radius: 8px;
-    background-color: white;
-    margin-right: 20px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #ff8a3d;
-    cursor: pointer;
-    transition: 0.2s ease;
+  padding: 8px 18px;
+  border: 2px solid #ff8a3d;
+  border-radius: 8px;
+  background-color: white;
+  margin-right: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ff8a3d;
+  transition: 0.2s ease;
 }
 nav button:hover{
-    background-color: #ff8a3d;
-    color: white;
+  background-color: #ff8a3d;
+  color: white;
 }
 .logo img{
-    height: 24px;
-    width: auto;
+  height: 24px;
+  width: auto;
 }
 .logo a{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .logo{
-    margin-left: 20px;
+  margin-left: 20px;
 }
 /*Deri ketu ishte dizajnimi i Navigation Bar*/
 
 
 .product-page{
-  padding: 40px 80px;
+  padding: 40px 70px;
 }
 .product-layout{
   display: flex;
@@ -90,7 +89,7 @@ nav button:hover{
 .product-info{
   flex: 1;
   max-width: 480px;
-  padding-top: 16px;
+  padding-top: 40px;
 }
 .badge{
   display: inline-block;
@@ -110,23 +109,24 @@ nav button:hover{
 }
 .subtitle{
   font-family: "Poppins", sans-serif;
+  font-size: 20px;
   color: rgb(95, 85, 85);
   text-align: center;
   margin-bottom: 15px;
 }
 .rating{
-    font-size: 17px;
-    color: gold;
-    text-align: center;
+  font-size: 17px;
+  color: gold;
+  text-align: center;
 }
 .product-p{
-    font-family: "Poppins", sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
 
 }
-hr {
+hr{
   border: none;
   border: 1px solid #ff8a3d;
   margin: 20px 0;
@@ -139,22 +139,22 @@ hr {
   gap: 8px;
   margin-bottom: 8px;
 }
-.stock {
+.stock{
   font-family: "Poppins", sans-serif;
   color: #16a34a;
-  font-size: 14px;
+  font-size: 17px;
   text-align: center;
 }
-.qty-row {
+.qty-row{
   display: flex;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
   font-size: 14px;
 }
-
-.qty-label {
+.qty-label{
   font-family: "Poppins", sans-serif;
+  font-size: 17px;
 }
 .qty-box{
   display: flex;
@@ -162,23 +162,20 @@ hr {
   border-radius: 999px;
   overflow: hidden;
 }
-
-.qty-box button {
+.qty-box button{
   border: none;
   background: #f9fafb;
   padding: 8px 16px;
   font-size: 18px;
 }
-
-.qty-box span {
+.qty-box span{
   padding: 8px 20px;
 }
-
 .subtotal{
   margin-left: auto;
   font-family: "Poppins", sans-serif;
+  font-size: 17px;
 }
-
 .buy-btn{
   margin-top: 24px;
   width: 100%;
@@ -191,26 +188,31 @@ hr {
 }
 .details{
     display: block;
+    background-color: #ff8a3d;
+    border: 1px solid #eee;
+
 }
 .h2-title{
   font-family:"Fredoka" , sans-serif; 
+  color: white;
   font-size: 42px;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 .p-details{
     font-family: "Poppins", sans-serif;
-    font-size: 25px;
+    color: white;
+    font-size: 20px;
     text-align: center;
-    padding: 30px;
-    color: rgb(95, 85, 85);
+    padding: 20px;
 }
-
-
 .keyfeatures{
     font-family:"Fredoka" , sans-serif; 
+    color: rgb(95, 85, 85);
     font-size: 27px;
     text-align: center;       
-    margin-top: 20px;
+    margin-top: 15px;
 }
 .keyfeatures ul{
     font-family: "Poppins", sans-serif;
