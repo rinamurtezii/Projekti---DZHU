@@ -71,10 +71,10 @@ nav button:hover{
 footer{
     background-color: #ff8a3d;
     color: white;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 .kuti {
-    column-gap: 20px;
+    column-gap: 15px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -128,27 +128,27 @@ footer{
     line-height: 1.5;
     font-weight: bold;
     font-size: 2rem;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 .titullidyt{
     font-family:"Fredoka" , sans-serif;
     line-height: 1.5;
     font-weight: bold;
     font-size: 2rem;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 .titullitret{
     font-family: "Fredoka" , sans-serif;
     line-height: 1.5;
     font-weight: bold;
     font-size: 2rem;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
 }
 .fundi{
     font-family: "Poppins", sans-serif;
     text-align: center;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
     padding-top: 18px;
     font-size: 0.9rem;
 }
