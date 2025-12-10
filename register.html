@@ -41,25 +41,26 @@
         <h2 id="signin">Create An Account</h2>
         <p class="shkurt">Join us and find your perfect companion</p>
 
-        <form class="forma">
+        <script src="validatecreateaccount.js"></script>
+        <form class="forma" onsubmit="return validatecreateaccount()">
             <div class="fushat">
             <label for="email">Full Name</label>
-            <input id="name" type="text" placeholder="Name" required>
+            <input id="name" type="text" placeholder="Name">
           </div>
 
           <div class="fushat">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" required>
+            <input id="email" type="email" placeholder="you@example.com">
           </div>
 
           <div class="fushat">
             <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" required>
+            <input id="password" type="password" placeholder="••••••••">
           </div>
 
           <div class="fushat">
             <label for="password">Confirm Password</label>
-            <input id="password" type="password" placeholder="••••••••" required>
+            <input id="confirmPassword" type="password" placeholder="••••••••">
           </div>
           <br>
           <button class="btn" type="submit">Create Account</button>
