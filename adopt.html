@@ -35,33 +35,25 @@
         <section class="filterbox">
             <h3>Filter Pets</h3>
             <div class="filter-rresht">
-                <div class="filtergrupet">
-                <label>Dog Breed</label>
-                <select>
-                    <option>All Types</option>
-                    <option>Pommarian</option>
-                    <option>Bulldogs</option>
-                    <option>Golden Retriever</option>
-                </select>
-            </div>
+        
             <div class="filtergrupet">
-                <label>Size</label>
-                <select>
-                    <option>All Sizes</option>
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
+                <label for="sizeFilter">Size</label>
+                <select id="sizeFilter" name="size">
+                    <option value="all">All Sizes</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
                 </select>
             </div>
             </div>
             <div class="resetbutonikutia">
-                <button class="resetbutoni">Reset Filters</button>
+                <button class="resetbutoni" type="button">Reset Filters</button>
             </div>
         </section>
 
         <section class="qent">
             <div class="qent-kutia">
-            <div class="kartaqenit">
+            <div class="kartaqenit" data-size="Medium">
                 <div class="fototwrap">
                 <img src="qeni1.jpg" class="fotoja">
 
@@ -81,7 +73,7 @@
                 <button class="adopt-btn">Adopt Now!</button>
        </a> 
     </div>
-        <div class="kartaqenit">
+        <div class="kartaqenit" data-size="Large">
             <div class="fototwrap">
                 <img src="qeni2.jpg" class="fotoja">
 
@@ -101,7 +93,7 @@
             <button class="adopt-btn">Adopt Now!</button>
         </a>
         </div>
-        <div class="kartaqenit">
+        <div class="kartaqenit" data-size="Small">
             <div class="fototwrap">
                 <img src="qeni3.jpg" class="fotoja">
 
@@ -121,7 +113,7 @@
             <button class="adopt-btn">Adopt Now!</button>
        </a> 
     </div>
-        <div class="kartaqenit">
+        <div class="kartaqenit" data-size="Small">
             <div class="fototwrap">
                 <img src="qeni4.jpg" class="fotoja">
 
@@ -141,7 +133,7 @@
             <button class="adopt-btn">Adopt Now!</button>
         </a>
     </div>
-        <div class="kartaqenit">
+        <div class="kartaqenit" data-size="Large">
             <div class="fototwrap">
                 <img src="qeni5.jpg" class="fotoja">
 
@@ -161,7 +153,7 @@
             <button class="adopt-btn">Adopt Now!</button>
         </a>
     </div>
-        <div class="kartaqenit">
+        <div class="kartaqenit" data-size="Medium">
             <div class="fototwrap">
                 <img src="qeni6.jpg" class="fotoja">
 
@@ -311,6 +303,36 @@
 </div>
 
 </footer>
-    
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const sizeFilter = document.getElementById("sizeFilter");
+    const resetBtn = document.querySelector(".resetbutoni");
+    const dogs = document.querySelectorAll(".kartaqenit");
+
+    function filterDogs() {
+        const selectedSize = sizeFilter.value;
+
+        dogs.forEach(dog => {
+            const dogSize = dog.dataset.size;
+
+            if (selectedSize === "all" || dogSize === selectedSize) {
+                dog.style.display = "block";
+            } else {
+                dog.style.display = "none";
+            }
+        });
+    }
+
+    sizeFilter.addEventListener("change", filterDogs);
+
+    resetBtn.addEventListener("click", () => {
+        sizeFilter.value = "all";
+        filterDogs();
+    });
+
+});
+</script>
+
 </body>
 </html>
