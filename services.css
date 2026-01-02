@@ -66,36 +66,6 @@ nav button:hover{
 .logo{
     margin-left: 20px;
 }
-/*Deri ketu ishte dizajnimi i Navigation Bar*/
-/*Fillon shiriti
-.sale-banner{ 
-   background-color: white;
-   color: black;
-   padding: 40px 20px;
-   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-.sale-content{
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;   
-    align-items: center;     
-    text-align: center;    
-    gap: 10px;
-}
-.sale-emoji{
-    font-size: 48px;
-}
-.sale-text h1{
-    font-family:"Fredoka" , sans-serif;
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-.sale-text p{
-    font-family: "Poppins", sans-serif;
-    font-size: 24px;
-    color: rgb(95, 85, 85);
-}*/
 /*Fillon pjesa e features*/
 .shop{
     background: #ffffff;
@@ -323,9 +293,6 @@ button{
   font-family: "Fredoka", sans-serif;
   font-size: 17px;
 }
-
-
-
 
 /*Fillon footer*/
 footer{
