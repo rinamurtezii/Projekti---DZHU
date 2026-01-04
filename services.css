@@ -36,6 +36,8 @@ nav li:first-child a{
     font-family: "Fredoka" , sans-serif;
     font-size: 22px;
     font-weight: 600; 
+    /*me shtu*/
+    gap: 8px;
 }
 nav button{
     padding: 8px 18px;
@@ -58,18 +60,36 @@ nav button:hover{
     height: 24px;
     width: auto;
 }
+/*me largu
 .logo a{
     display: flex;
     align-items: center;
     gap: 8px;
-}
+}*/
 .logo{
     margin-left: 20px;
 }
+/*Fillon pjesa e section our shop*/
+.our-shop{
+    text-align: center;
+    padding-bottom: 20px;
+    /* nuk ka nevoj border: 1px;*/
+}
+.our-shop h1{
+    font-family:"Fredoka" , sans-serif;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+.our-shop p{
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    color: rgb(95, 85, 85);
+}
 /*Fillon pjesa e features*/
 .shop{
-    background: #ffffff;
-    justify-content: space-around;
+    background-color: white;
+    /* spo ndryshon asgje
+    justify-content: space-around;*/
     padding-bottom: 20px;
 }
 .features{
@@ -114,23 +134,6 @@ nav button:hover{
     font-family: "Poppins", sans-serif;
     font-size: 16px;
     color: white;
-}
-/*Fillon pjesa e section our shop*/
-.our-shop{
-    text-align: center;
-    padding-bottom: 20px;
-    border: 1px ;
-
-}
-.our-shop h1{
-    font-family:"Fredoka" , sans-serif;
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-.our-shop p{
-    font-family: "Poppins", sans-serif;
-    font-size: 24px;
-    color: rgb(95, 85, 85);
 }
 /*Dog toys and entertainment, Nutritious Dog Food*/
 .section-title{
