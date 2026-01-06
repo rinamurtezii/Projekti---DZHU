@@ -72,41 +72,34 @@ nav button:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 20px;
+    padding: 50px 40px;
     background-color: white;
     gap: 50px;
+}
+.home .teksti{
+    flex: 1;
+    max-width: 800px;
+}
+.home .imazhi{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
 
-}
-.home.teksti{
-    flex: 45%;
-    max-width: 350px;
-}
-.home.imazhi1{
-    flex: 45%;
-    max-width: 350px;
-}
-.home.imazhi{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-}
 .teksti h1{
-    margin-left: 40px;
     font-family: "Fredoka" , sans-serif;
     font-size: 5rem;
     margin-bottom: 15px;
 }
 .teksti p{
     font-family:"Fredoka" , sans-serif;
-    margin-left: 40px;
     font-size: 3rem;
     line-height: 1.5;
 }
 #butoni{
     background-color: #ff8a3d;
     color: white;
-    font-size: 2rem;
+    font-size: 25px;
     font-family:"Poppins", sans-serif;
     padding: 30px 45px;
     border-radius: 50px;
