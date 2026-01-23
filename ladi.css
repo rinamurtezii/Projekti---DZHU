@@ -215,6 +215,7 @@ footer{
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    border: none;
 }
 .back-btn {
     background-color: #777;
