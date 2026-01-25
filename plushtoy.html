@@ -11,20 +11,52 @@
 </head>
 <body>
      <nav>
-        <ul>
-        <li class="logo"><a href="#">
-            <img src="Logo.png" alt="PawCare Logo">PawCare
-        </a></li>
-        <li><a href="indexi.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="adopt.html">Adopt</a></li>
-        <a href="login.html">
+  <ul>
+    <li class="logo">
+      <a href="#">
+        <img src="Logo.png" alt="PawCare Logo">PawCare
+      </a>
+    </li>
+
+    <li><a href="indexi.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="adopt.html">Adopt</a></li>
+
+    <li class="cart-li">
+      <a href="#" id="cartBtn" class="cart-icon">
+        <img src="cart-white.png" alt="Cart" class="cart-img">
+        <span id="cartCount" class="cart-count">0</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="login.html">
         <button type="button">Sign In</button>
-    </a>
-        </ul>
-    </nav>
+      </a>
+    </li>
+  </ul>
+</nav>
 <br><br>
+
+<div id="cartOverlay" class="cart-overlay"></div>
+
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button id="cartClose" type="button" class="cart-close">✕</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Total:</span>
+      <b><span id="cartTotal">0.00</span>€</b>
+    </div>
+    <button id="clearCart" class="cart-clear" type="button">Clear</button>
+  </div>
+</div>
 
 
 <div class="product-page">
@@ -58,7 +90,12 @@
         <span class="subtotal">Subtotal: <strong>15.99€</strong></span>
       </div>
 
-      <button class="buy-btn">Buy Now</button>
+      <button class="buy-btn add-to-cart-btn"
+  data-name="Plush Toy"
+  data-price="15.99"
+  data-img="plushtoy.jpeg">
+  Add to Cart
+</button>
     </div>
   </div>
 </div>
@@ -132,5 +169,6 @@
 </div>
 </footer>
 <script src="shop.js"></script>
+<script src="cart.js"></script>
 </body>
 </html>

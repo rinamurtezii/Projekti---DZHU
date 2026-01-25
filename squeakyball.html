@@ -19,12 +19,37 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="adopt.html">Adopt</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li class="cart-li">
+        <a href="#" id="cartBtn" class="cart-icon">
+        <img src="cart-white.png" alt="Cart" class="cart-img">
+        <span id="cartCount" class="cart-count">0</span>
+        </a>
+        </li>
         <a href="login.html">
         <button type="button">Sign In</button>
     </a>
         </ul>
     </nav>
 <br><br>
+
+<div id="cartOverlay" class="cart-overlay"></div>
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button id="cartClose" type="button" class="cart-close">✕</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Total:</span>
+      <b><span id="cartTotal">0.00</span>€</b>
+    </div>
+    <button id="clearCart" class="cart-clear" type="button">Clear</button>
+  </div>
+</div>
 
 <div class="product-page">
   <div class="product-layout">
@@ -54,11 +79,15 @@
         <span id="qty-value">1</span>
         <button type="button" class="qty-btn" id="qty-plus">+</button>
       </div>
-
         <span class="subtotal">Subtotal: <strong>12.99€</strong></span>
       </div>
 
-      <button class="buy-btn">Buy Now</button>
+      <button class="buy-btn add-to-cart-btn"
+  data-name="Squeaky Ball"
+  data-price="8.99"
+  data-img="squeakyball.jpeg">
+  Add to Cart
+</button>
     </div>
   </div>
 </div>
@@ -133,5 +162,6 @@
 </div>
 </footer>
 <script src="shop.js"></script>
+<script src="cart.js"></script>
 </body>
 </html>
