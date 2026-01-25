@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+}
+nav{
+    background-color: #ff8a3d;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+nav li:first-child a{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 22px;
+    font-weight: 600; 
+}
+nav button{
+    padding: 8px 18px;
+    border: 2px solid #ff8a3d;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff8a3d;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+nav button:hover{
+    background-color: #ff8a3d;
+    color: white;
+}
+.logo img{
+    height: 24px;
+    width: auto;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo{
+    margin-left: 20px;
+}
+footer{
+    background-color: #ff8a3d;
+    color: white;
+    padding: 20px 20px;
+}
+.kuti {
+    column-gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+.rreshti{
+    display: flex;
+    font-family:"Poppins", sans-serif;
+    align-items: center;
+    gap: 10px;
+}
+#imfoot{
+    width: 45px;
+}
+.emri {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.shkrimi{
+    margin-top: 14px;
+    max-width: 450px;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-family:"Fredoka" , sans-serif;
+}
+.kolonapar{
+    font-family:"Poppins", sans-serif;
+}
+.kolonapar ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonatret ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt{
+    font-family:"Poppins", sans-serif;
+}
+.kolonatret{
+    font-family:"Poppins", sans-serif;
+}
+.titullipar{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.titullidyt{
+    font-family:"Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.titullitret{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.fundi{
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+.ikonat{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+.news-box {
+    display: flex;
+    gap: 25px;
+    margin: 40px auto;
+    max-width: 1500px;
+}
+
+.main-news {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-news {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item, .side-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.news-item:hover, .side-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-item img, .side-item img {
+    width:100%;
+    height: auto;
+    display: block;
+}
+
+.news-item h3, .side-item h4 {
+    font-family:"Fredoka" , sans-serif;
+    margin: 15px;
+    color: black;
+}
+
+.news-item p, .side-item p {
+    font-family: "Poppins", sans-serif;
+    margin: 0 15px 15px;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.news-item a, .side-item a {
+    text-decoration: none; 
+    color: inherit;    
+    display: block;   
+    cursor: pointer;       
+    transition: transform 0.3s; 
+}
+
+.news-item a:hover, .side-item a:hover {
+    transform: translateY(-5px); 
+}
