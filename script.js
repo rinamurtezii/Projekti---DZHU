@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href=redirectPage;
             }
         } else{
-            alert("Please fill in all field correctly!");
+            alert("Please fill in all fields correctly!");
         }
         });
     });
