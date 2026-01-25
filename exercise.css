@@ -66,171 +66,12 @@ nav button:hover{
 .logo{
     margin-left: 20px;
 }
-/*Deri ketu ishte dizajnimi i Navigation Bar*/
-
-.product-page{
-  padding: 30px 70px;
-}
-.product-layout{
-  display: flex;
-  align-items: flex-start;     
-  justify-content: space-evenly; 
-  gap: 56px;
-}
-.product-media{  
-  max-width: 550px;
-}
-.product-media img{
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
-  display: block;
-}
-.product-info{
-  flex: 1;
-  max-width: 480px;
-  padding-top: 40px;
-}
-.badge{
-  display: inline-block;
-  background: red;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-bottom: 16px;
-}
-.product-title{
-  font-family:"Fredoka" , sans-serif;
-  font-size: 42px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-.subtitle{
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  color: rgb(95, 85, 85);
-  text-align: center;
-  margin-bottom: 15px;
-}
-.rating{
-    font-size: 17px;
-    color: gold;
-    text-align: center;
-}
-.product-p{
-    font-family: "Poppins", sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    text-align: center;
-
-}
-hr{
-  border: none;
-  border: 1px solid #ff8a3d;
-  margin: 20px 0;
-}
-.price{
-  font-size: 48px;
-  font-weight: 700;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.stock{
-  font-family: "Poppins", sans-serif;
-  color: #16a34a;
-  font-size: 17px;
-  text-align: center;
-}
-.qty-row{
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 14px;
-}
-.qty-label{
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-}
-.qty-box{
-  display: flex;
-  border: 1px solid #d1d5db;
-  border-radius: 999px;
-  overflow: hidden;
-}
-.qty-box button{
-  border: none;
-  background: #f9fafb;
-  padding: 8px 16px;
-  font-size: 18px;
-}
-.qty-box span{
-  padding: 8px 20px;
-}
-.subtotal{
-  margin-left: auto;
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-}
-.buy-btn{
-  margin-top: 24px;
-  width: 100%;
-  padding: 16px 24px;
-  background: #ff8a3d;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  font-size: 16px;
-}
-.details{
-    display: block;
-    background-color: #ff8a3d;
-    border: 1px solid #eee;
-
-}
-.h2-title{
-  font-family:"Fredoka" , sans-serif; 
-  color: white;
-  font-size: 42px;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 20px;
-}
-.p-details{
-    font-family: "Poppins", sans-serif;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
-}
-.keyfeatures{
-    font-family:"Fredoka" , sans-serif; 
-    color: rgb(95, 85, 85);
-    font-size: 27px;
-    text-align: center;       
-    margin-top: 15px;
-}
-.keyfeatures ul{
-    font-family: "Poppins", sans-serif;
-    color: rgb(95, 85, 85);
-    font-size: 20px;
-    list-style: none;       
-    padding: 0;
-    line-height: 1.7;                  
-    text-align: center;           
-}
-
-/*Fillon footer*/
 footer{
     background-color: #ff8a3d;
     color: white;
     padding: 20px 20px;
 }
-.kuti{
+.kuti {
     column-gap: 15px;
     display: flex;
     flex-wrap: wrap;
@@ -317,9 +158,154 @@ footer{
     margin-right: 10px;
     gap: 10px;
 }
-/*Mbaron footer*/
+.back-arrow {
+    font-family:"Fredoka" , sans-serif;
+    font-size: 20px;
+    display: inline-block;
+    margin: 30px 60px;
+    text-decoration: none;
+    color: #ff7a00;
+    font-weight: 500;
+}
+
+.article-layout {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2.6fr 1.4fr;
+    gap: 24px;
+    padding: 0 40px 80px;
+}
+
+.article-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.article-title {
+    font-family:"Fredoka" , sans-serif;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    font-family:"Fredoka" , sans-serif;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.article-image {
+    width: 100%;
+    border-radius: 18px;
+    margin: 30px 0;
+}
+
+.article-container p {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+blockquote {
+    font-family:"Fredoka" , sans-serif;
+    font-size: 25px;
+    margin: 40px 0;
+    padding: 25px 30px;
+    background: #fff3e6;
+    border-left: 6px solid #ff7a00;
+    font-style: italic;
+    border-radius: 12px;
+    color: #555;
+}
+
+.article-sidebar {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    height: fit-content;
+}
+
+.article-sidebar h3 {
+    font-family:"Fredoka" , sans-serif;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 18px;
+    cursor: pointer;
+}
+
+.sidebar-item img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.sidebar-text h4 {
+    font-family: "Fredoka" , sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+}
+.sidebar-text p{
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+.sidebar-text {
+     display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.sidebar-quote {
+    font-family:"Fredoka" , sans-serif;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    font-style: italic;
+    font-size: 18px;
+}
+.article-sidebar {
+    position: sticky;
+    top: 90px;
+}
+.sidebar-item a {
+    text-decoration: none; 
+    color: inherit;       
+    display: block;        
+}
+
+/* Shtesa minimale (si te not-well), nuk prish stilin */
+.article-subtitle{
+    font-family:"Fredoka" , sans-serif;
+    font-size: 22px;
+    margin: 18px 0 10px;
+}
+.article-list{
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    margin: 10px 0 20px 20px;
+    line-height: 1.7;
+}
+.article-note{
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    background: #f7f7f7;
+    padding: 16px 18px;
+    border-radius: 12px;
+}
 
 
+/*cart*/
 .cart-li{
     height: 50px;
     display: flex;
