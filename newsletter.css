@@ -496,5 +496,53 @@ footer{
     color: #1f2937;
     max-width: 600px;
 }
+.paw-hero{
+  padding: 34px 0 18px;
+  background: radial-gradient(
+    700px 300px at 50% 20%,
+    #ff8a3d,
+    transparent 50%
+  );
+}
 
-
+.paw-hero__inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+.paw-hero__pill{
+  display:inline-block;
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,122,26,.12);
+  border: 1px solid rgba(255,122,26,.18);
+  color: #a54400;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+.paw-hero__title{
+  font-family:"Fredoka" , sans-serif;
+  margin-bottom: 15px;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 800;
+  color: #111827;
+}
+.news-head{
+  max-width: 1180px;
+  margin: 18px auto 14px;
+  padding: 0 18px;
+  text-align: center;
+}
+.news-title{
+    margin-bottom: 10px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 35px;
+  color: #111827;
+}
+.news-sub{
+  font-family: "Poppins", sans-serif;
+  color: #6b7280;
+  font-weight: 500;
+}

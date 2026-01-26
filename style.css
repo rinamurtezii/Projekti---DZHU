@@ -296,6 +296,24 @@ footer{
    margin-bottom: 20px;
    text-align: center;
 }
+
+.dogs-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+}
+
+#prevDog, #nextDog{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid #ff8a3d;
+  background: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  font-family: "Fredoka", sans-serif;
+}
 /*Pjesa e shiritit ready to change*/
 .adopt-hero {
     background-color: white;
@@ -338,13 +356,6 @@ footer{
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;
@@ -367,8 +378,6 @@ footer{
     object-fit: contain;
     cursor: pointer;
 }
-
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -383,8 +392,6 @@ footer{
     font-family: "Poppins", sans-serif;
     line-height: 1.2;
 }
-
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -395,8 +402,6 @@ footer{
 .cart-overlay.open{
     display: block;
 }
-
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
