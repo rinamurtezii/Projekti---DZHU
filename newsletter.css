@@ -191,7 +191,6 @@ footer{
 .news-card .content {
   padding: 24px;
 }
-
 .news-card h4 {
   font-family: "Fredoka" , sans-serif;
   font-size: 25px;
@@ -236,7 +235,7 @@ footer{
     color:#ff8a3d
  }
 .badge.events {
-     color: #ff8c42;
+    color: #ff8c42;
  }
 
 .date {
@@ -276,7 +275,6 @@ footer{
   font-size: 18px;
   color: #555;
 }
-
 .read-time {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -284,20 +282,11 @@ footer{
   color:#ff8a3d;
 }
 
-
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;
     align-items: center;
 }
-
 .cart-icon{
     position: relative;
     display: flex;
@@ -307,7 +296,6 @@ footer{
     padding: 0 10px;
     text-decoration: none;
 }
-
 .cart-img{
     width: 24px;
     height: 24px;
@@ -315,7 +303,6 @@ footer{
     cursor: pointer;
 }
 
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -330,8 +317,6 @@ footer{
     font-family: "Poppins", sans-serif;
     line-height: 1.2;
 }
-
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -342,8 +327,6 @@ footer{
 .cart-overlay.open{
     display: block;
 }
-
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
@@ -545,4 +528,59 @@ footer{
   font-family: "Poppins", sans-serif;
   color: #6b7280;
   font-weight: 500;
+}
+.events{
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.events h2{
+  font-family: "Fredoka", sans-serif;
+  font-size: 44px;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
+.cards{
+  display: flex;
+  gap: 26px;
+}
+.card{
+  flex: 1;
+  background: #ff8a3d;
+  color: white;
+  border-radius: 26px;
+  padding: 35px 30px;    
+  box-shadow: 0 16px 34px rgba(0,0,0,0.10);
+  text-align: left;
+  min-height: 220px;     
+}
+.icon{
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  margin-bottom: 16px;
+}
+.card h3{
+  font-family: "Fredoka", sans-serif;
+  font-size: 26px;
+  margin: 0 0 10px;
+}
+.meta{
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  opacity: 0.95;
+  margin: 0 0 14px;
+}
+.card p{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
 }

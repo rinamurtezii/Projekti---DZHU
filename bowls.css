@@ -319,19 +319,11 @@ footer{
 }
 /*Mbaron footer*/
 
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;
     align-items: center;
 }
-
 .cart-icon{
     position: relative;
     display: flex;
@@ -341,15 +333,12 @@ footer{
     padding: 0 10px;
     text-decoration: none;
 }
-
 .cart-img{
     width: 24px;
     height: 24px;
     object-fit: contain;
     cursor: pointer;
 }
-
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -364,8 +353,6 @@ footer{
     font-family: "Poppins", sans-serif;
     line-height: 1.2;
 }
-
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -376,8 +363,6 @@ footer{
 .cart-overlay.open{
     display: block;
 }
-
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
@@ -394,8 +379,6 @@ footer{
 .cart-panel.open{
     right: 0;
 }
-
-/* Header */
 .cart-head{
     padding: 16px;
     border-bottom: 1px solid #eee;
@@ -404,7 +387,6 @@ footer{
     align-items: center;
     font-family: "Fredoka", sans-serif;
 }
-
 .cart-close{
     border: none;
     background: #ff8a3d;
@@ -414,14 +396,11 @@ footer{
     border-radius: 8px;
     cursor: pointer;
 }
-
-/* Items */
 .cart-items{
     padding: 12px;
     overflow: auto;
     flex: 1;
 }
-
 .cart-item{
     display: flex;
     gap: 10px;
@@ -431,24 +410,20 @@ footer{
     margin-bottom: 10px;
     font-family: "Poppins", sans-serif;
 }
-
 .cart-item img{
     width: 60px;
     height: 60px;
     border-radius: 8px;
     object-fit: cover;
 }
-
 .cart-item h4{
     font-size: 14px;
     margin-bottom: 4px;
 }
-
 .cart-item .small{
     font-size: 12px;
     color: #666;
 }
-
 .cart-remove{
     margin-left: auto;
     border: none;
@@ -459,20 +434,16 @@ footer{
     cursor: pointer;
     height: fit-content;
 }
-
-/* Footer */
 .cart-foot{
     padding: 12px 16px;
     border-top: 1px solid #eee;
     font-family: "Poppins", sans-serif;
 }
-
 .cart-total{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
-
 .cart-clear{
     width: 100%;
     padding: 10px 14px;

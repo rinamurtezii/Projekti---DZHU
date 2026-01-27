@@ -390,14 +390,6 @@ footer{
     margin-right: 10px;
     gap: 10px;
 }
-/*Mbaron footer*/
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;

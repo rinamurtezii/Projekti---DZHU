@@ -233,3 +233,143 @@ nav button:hover{
 #butoni:hover{
     background-color: rgb(208, 161, 60);
 }
+
+
+.cart-li{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.cart-icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.cart-img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    cursor: pointer;
+}
+.cart-count{
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    background: white;
+    color: #ff8a3d;
+    border: 2px solid #ff8a3d;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.2;
+}
+.cart-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: none;
+    z-index: 999;
+}
+.cart-overlay.open{
+    display: block;
+}
+.cart-panel{
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 360px;
+    height: 100vh;
+    background: white;
+    box-shadow: -6px 0 18px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+.cart-panel.open{
+    right: 0;
+}
+.cart-head{
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Fredoka", sans-serif;
+}
+.cart-close{
+    border: none;
+    background: #ff8a3d;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.cart-items{
+    padding: 12px;
+    overflow: auto;
+    flex: 1;
+}
+.cart-item{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.cart-item img{
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.cart-item h4{
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.cart-item .small{
+    font-size: 12px;
+    color: #666;
+}
+.cart-remove{
+    margin-left: auto;
+    border: none;
+    background: #777;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    height: fit-content;
+}
+.cart-foot{
+    padding: 12px 16px;
+    border-top: 1px solid #eee;
+    font-family: "Poppins", sans-serif;
+}
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cart-clear{
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #ff8a3d;
+    color: white;
+    cursor: pointer;
+    font-family: "Fredoka", sans-serif;
+}
+.cart-clear:hover{
+    opacity: 0.9;
+}
