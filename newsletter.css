@@ -219,24 +219,6 @@ footer{
     display: block;        
 }
 
-.badge {
-  font-family: "Poppins", sans-serif;;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  background: white;
-}
-
-.badge.success { 
-    color:#ff8a3d
- }
-.badge.events {
-    color: #ff8c42;
- }
 
 .date {
   font-family: "Poppins", sans-serif;
