@@ -1,11 +1,12 @@
 <?php
-require 'DataBase.php';  
+require 'DataBase.php';
 
-echo "Test connection: ";
+$db = new DataBase();
 
-if ($conn) {
-    echo "Success!";
-} else {
-    echo "Failed: " . $conn->connect_error;
+try {
+    $conn = $db->startConnection();
+    echo "✅ Database connection SUCCESS!";
+} catch (Exception $e) {
+    echo "❌ Database connection FAILED: " . $e->getMessage();
 }
 ?>
