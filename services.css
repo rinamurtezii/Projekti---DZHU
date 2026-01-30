@@ -242,13 +242,24 @@ nav button:hover{
   font-size: 20px;
   font-weight: bold;
 }
-button{
-  background-color: #ff8a3d;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
+.buy-btn-link {
+    background-color: #ff8a3d !important;  
+    color: white !important;               
+    border: none !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none !important;
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-block !important;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.buy-btn-link:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 /*What our costumers say*/

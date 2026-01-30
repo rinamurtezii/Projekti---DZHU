@@ -28,7 +28,7 @@ $reviews = $reviewObj->getAllReviews();
         </a></li>
         <li><a href="indexi.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.php">Services</a></li>
         <li><a href="adopt.html">Adopt</a></li>
         <li><a href="newsletter.html">Newsletter</a></li>
         <li class="cart-li">
@@ -101,30 +101,40 @@ $reviews = $reviewObj->getAllReviews();
 
 <br><br>
 <?php 
-$categories=[];
-foreach($products as $p){
+// Grupi produktet sipas kategorive
+$categories = [];
+foreach ($products as $p) {
     $cat = trim($p['category']);
     $categories[$cat][] = $p;
 }
-foreach ($categories as $dogName => $dogProducts):
+
+// Loop për secilën kategori
+foreach ($categories as $categoryName => $categoryProducts):
 ?>
 <div class="section-title">
     <div class="title-icon">
         <?php
-        $cleanName = strtolower(trim($dogName));
-        if(strpos($cleanName, 'dog toys & entertainment') !== false) echo '<img src="bone.png" alt="icon">';
-        elseif(strpos($cleanName, 'nutritious dog food') !== false) echo '<img src="heart.png" alt="icon">';
-        else echo '<img src="parcel.png" alt="icon">';
+        $cleanName = strtolower(trim($categoryName));
+        if (strpos($cleanName, 'dog toys & entertainment') !== false) {
+            echo '<img src="bone.png" alt="Dog Toys & Entertainment">';
+        } elseif (strpos($cleanName, 'nutritious dog food') !== false) {
+            echo '<img src="heart.png" alt="Nutritious Dog Food">';
+        } else {
+            echo '<img src="parcel.png" alt="Other">';
+        }
         ?>
     </div>
-    <h2><?php echo htmlspecialchars($dogName); ?></h2>
+    <h2><?php echo htmlspecialchars($categoryName); ?></h2>
 </div>
+
 <section class="products">
-<?php foreach ($dogProducts as $product): ?>
+    <?php foreach ($categoryProducts as $product): ?>
     <div class="product-card">
         <div class="img-box">
-            <?php if(!empty($product['tag'])): ?>
-                <span class="tag <?php echo strtolower($product['tag']); ?>"><?php echo htmlspecialchars($product['tag']); ?></span>
+            <?php if (!empty($product['tag'])): ?>
+                <span class="tag <?php echo strtolower($product['tag']); ?>">
+                    <?php echo htmlspecialchars($product['tag']); ?>
+                </span>
             <?php endif; ?>
             <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['title']); ?>">
         </div>
@@ -139,13 +149,17 @@ foreach ($categories as $dogName => $dogProducts):
             <p><?php echo htmlspecialchars($product['description']); ?></p>
             <div class="bottom">
                 <span class="price"><?php echo number_format($product['price'], 2); ?>€</span>
-                <a href="#"><button>Buy Now</button></a>
+                <!-- BUTONI BUY NOW -->
+                <a href="product.php?id=<?php echo $product['id']; ?>" class="buy-btn-link">
+                    Buy Now
+                </a>
             </div>
         </div>
     </div>
     <?php endforeach; ?>
 </section>
 <?php endforeach; ?>
+
 
 <section class="testimonials">
     <h2 class="testimonials-title">What Our Customers Say</h2>
