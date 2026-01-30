@@ -7,10 +7,9 @@ $conn = $db->startConnection();
 
 $model = new NewsletterModel($conn);
 
-// Merr të dhënat nga DB
-$mainNews = $model->getNews(1, 2);  // 2 lajme kryesore (is_main=1)
-$sideNews = $model->getNews(0, 3);  // 3 lajme anësore (is_main=0)
-$events   = $model->getEvents(3);   // 3 evente
+$mainNews = $model->getNews(1, 2);
+$sideNews = $model->getNews(0, 3);  
+$events   = $model->getEvents(3); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +33,14 @@ $events   = $model->getEvents(3);   // 3 evente
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="adopt.html">Adopt</a></li>
-        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="newsletter.php">Newsletter</a></li>
         <li class="cart-li">
         <a href="#" id="cartBtn" class="cart-icon">
         <img src="cart-white.png" alt="Cart" class="cart-img">
         <span id="cartCount" class="cart-count">0</span>
         </a>
         </li>
-        <a href="login.html"><button type="button">Sign In</button></a>
+        <a href="login.php"><button type="button">Sign In</button></a>
         </ul>
     </nav>
     <br>
@@ -81,102 +80,67 @@ $events   = $model->getEvents(3);   // 3 evente
   <p class="news-sub">A closer look at our dogs, our days, and our mission.</p>
 </div>
 
-    <section class="news-box">
+<section class="news-box">
   <div class="main-news">
-    <article class="news-card big">
-      <img src="news-1.jpg" alt="Coco's Journey">
+    <?php if (!empty($mainNews)): ?>
+      <?php foreach ($mainNews as $n): ?>
+        <article class="news-card big">
+          <img src="<?= htmlspecialchars($n['image']) ?>" alt="<?= htmlspecialchars($n['title']) ?>">
 
-      <div class="content">
-        <span class="date">OCT 24, 2025</span>
-        <h4>Coco's Journey</h4>
-        <p>
-          Read Coco's heartwarming story to adoption.
-          From a scared rescue to a beloved family member.
-        </p>
-        <a href="cocos-journey.html" class="read-more">Read Full Story →</a>
-      </div>
-    </article>
-
-    <article class="news-card big">
-      <img src="news-5.jpg" alt="Picture Day at PawHome">
-
-      <div class="content">
-        <span class="date">OCT 22, 2025</span>
-        <h4>Picture Day at PawHome</h4>
-        <p>
-          Scroll through cuteness! Our monthly photoshoot captures
-          the unique personalities of our residents.
-        </p>
-        <a href="picture-day.html" class="read-more">Read Full Story →</a>
-      </div>
-    </article>
-
+          <div class="content">
+            <span class="date"><?= strtoupper(date("M d, Y", strtotime($n['created_at']))) ?></span>
+            <h4><?= htmlspecialchars($n['title']) ?></h4>
+            <p><?= htmlspecialchars($n['summary']) ?></p>
+            <a href="<?= htmlspecialchars($n['link']) ?>" class="read-more">Read Full Story →</a>
+          </div>
+        </article>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p style="padding:10px;">No main news yet.</p>
+    <?php endif; ?>
   </div>
 
   <aside class="side-news">
+    <?php if (!empty($sideNews)): ?>
+      <?php foreach ($sideNews as $n): ?>
+        <article class="side-item">
+          <img src="<?= htmlspecialchars($n['image']) ?>" alt="<?= htmlspecialchars($n['title']) ?>">
 
-    <article class="side-item">
-  
-    <img src="news-2.jpg" alt="">
-    <div>
-    <span class="read-time">4 MIN READ</span>
-    <a href="not-well.html" class="img-link">
-    <h4>Signs Your Pet May Not Feel Well</h4>
-    <p>Changes in behavior, appetite, or energy can be warning signs.</p>
-</a>
-</div>
-</article>
+          <div>
+            <?php if (!empty($n['read_time'])): ?>
+              <span class="read-time"><?= htmlspecialchars($n['read_time']) ?></span>
+            <?php endif; ?>
 
-    <article class="side-item">
-      
-      <img src="news-4.jpg" alt="">
-      <div>
-        <span class="read-time">6 MIN READ</span>
-        <a href="excercise.html">
-        <h4>Exercise for a Longer Life</h4>
-        <p>Daily walks and playtime help pets stay active and happy.</p>
-  </a>
-</div>
-    </article>
-
-    <article class="side-item">
-      
-      <img src="news-6.jpg" alt="">
-      <div>
-        <span class="read-time">3 MIN READ</span>
-        <a href="spa.html">
-        <h4>Spa or Mischief?</h4>
-        <p>During bath time, some pups turned into little water ninjas!</p>
-    </a>
-  </div>
-    </article>
+            <a href="<?= htmlspecialchars($n['link']) ?>" class="img-link">
+              <h4><?= htmlspecialchars($n['title']) ?></h4>
+              <p><?= htmlspecialchars($n['summary']) ?></p>
+            </a>
+          </div>
+        </article>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p style="padding:10px;">No side news yet.</p>
+    <?php endif; ?>
   </aside>
 </section>
+
 
 <section class="events">
   <h2>Our Upcoming Events</h2>
 
   <div class="cards">
-    <div class="card">
-      <div class="icon">🎗️</div>
-      <h3>Charity Gala Night</h3>
-      <p class="meta">Friday • 19:00 • PawCare Hall</p>
-      <p>A fundraising evening to support rescue, care, and adoption programs.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🐾</div>
-      <h3>Adoption Day</h3>
-      <p class="meta">Saturday • 11:00–15:00 • PawHome Center</p>
-      <p>Meet our dogs, talk with the team, and find your perfect match.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🌿</div>
-      <h3>Volunteer Walk & Care</h3>
-      <p class="meta">Wednesday • 16:30–18:00 • City Park</p>
-      <p>Join us for dog walks, socialization, and simple care activities.</p>
-    </div>
+    <?php if (!empty($events)): ?>
+      <?php foreach ($events as $e): ?>
+        <div class="card">
+          <div class="icon"><?= htmlspecialchars($e['icon']) ?></div>
+          <h3><?= htmlspecialchars($e['title']) ?></h3>
+          <p class="meta"><?= htmlspecialchars($e['meta']) ?></p>
+          <p><?= htmlspecialchars($e['description']) ?></p>
+        </div>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p style="padding:10px;">No events yet.</p>
+    <?php endif; ?>
   </div>
 </section>
 
