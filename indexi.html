@@ -86,56 +86,77 @@
 </section>
 
 <br><br>
-<section>
-    <h2 id="h2-dogs">Meet Our Dogs</h2>
-    <div class="dogs-row">
-        <div class="dogs">
-            <img src="Dog1.jpeg">
-            <h3>Coco</h3>
-            <p>2 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog2.jpeg">
-            <h3>Max</h3>
-            <p>3 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog3.jpeg">
-            <h3>Milo</h3>
-            <p>7 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog4.jpeg">
-            <h3>Niko</h3>
-            <p>5 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog5.png">
-            <h3>Simba</h3>
-            <p>6 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog6.jpeg">
-            <h3>Sunny</h3>
-            <p>2 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog8.jpeg">
-            <h3>Rex</h3>
-            <p>5 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog10.jpeg">
-            <h3>Sky</h3>
-            <p>9 years</p>
-        </div>
-        <div class="dogs">
-            <img src="Dog12.jpeg">
-            <h3>Cookie</h3>
-            <p>4 years</p>
-        </div>
+<section class="dogsNew">
+  <h2 class="dogsNew-title">Meet Our Dogs</h2>
+
+  <div class="dogsNew-wrap">
+    <button class="dogsNew-arrow dogsNew-left" id="dogsLeft" type="button" aria-label="Previous">
+      ‹
+    </button>
+
+    <div class="dogsNew-viewport" id="dogsViewport">
+      <div class="dogsNew-track" id="dogsTrack">
+
+        <article class="dogsNew-card">
+          <img src="Dog1.jpeg" alt="Coco">
+          <span class="dogsNew-pill">Coco • 2 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog2.jpeg" alt="Max">
+          <span class="dogsNew-pill">Max • 3 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog3.jpeg" alt="Milo">
+          <span class="dogsNew-pill">Milo • 7 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog4.jpeg" alt="Niko">
+          <span class="dogsNew-pill">Niko • 5 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog5.png" alt="Simba">
+          <span class="dogsNew-pill">Simba • 6 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog6.jpeg" alt="Sunny">
+          <span class="dogsNew-pill">Sunny • 2 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog8.jpeg" alt="Rex">
+          <span class="dogsNew-pill">Rex • 5 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog10.jpeg" alt="Sky">
+          <span class="dogsNew-pill">Sky • 9 years</span>
+        </article>
+
+        <article class="dogsNew-card">
+          <img src="Dog12.jpeg" alt="Cookie">
+          <span class="dogsNew-pill">Cookie • 4 years</span>
+        </article>
+
+      </div>
     </div>
+
+    <button class="dogsNew-arrow dogsNew-right" id="dogsRight" type="button" aria-label="Next">
+      ›
+    </button>
+  </div>
+
+  <div class="dogsNew-progress">
+    <div class="dogsNew-bar" id="dogsBar"></div>
+  </div>
 </section>
+
+
+
 <br><br><br><br>
 <section class="adopt-hero">
     <h2 class="adopt-title">Ready to Change a Life?</h2>
@@ -193,5 +214,6 @@
 
 </footer>
 <script src="cart.js"></script>
+<script src="dogs-slider.js"></script>
 </body>
 </html>
