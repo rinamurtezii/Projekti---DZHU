@@ -93,10 +93,20 @@ $reviews = $reviewObj->getReviewsByProduct($id);
 
       <hr>
 
-     <p class="product-p"><?php echo number_format($product['price'], 2); ?>€</p>
+        <p class="product-p"><?php echo number_format($product['price'], 2); ?>€</p>
         <div class="stock"><?php echo htmlspecialchars($product['stock']); ?></div>
 
       <hr>
+      <div class="qty-row">
+        <span class="qty-label">QUANTITY</span>
+        <div class="qty-box">
+            <button type="button" class="qty-btn" id="qty-minus">-</button>
+            <span id="qty-value">1</span>
+            <button type="button" class="qty-btn" id="qty-plus">+</button>
+        </div>
+        <span class="subtotal">Subtotal: <strong><?php echo number_format($product['price'], 2); ?>€</strong></span>
+    </div>
+
       <button class="buy-btn add-to-cart-btn"
             data-name="<?php echo htmlspecialchars($product['title']); ?>"
             data-price="<?php echo $product['price']; ?>"
@@ -190,5 +200,25 @@ $reviews = $reviewObj->getReviewsByProduct($id);
 </footer>
 <script src="shop.js"></script>
 <script src="cart.js"></script>
+<script>
+const qtyMinus = document.getElementById('qty-minus');
+const qtyPlus = document.getElementById('qty-plus');
+const qtyValue = document.getElementById('qty-value');
+const subtotal = document.querySelector('.subtotal strong');
+const price = parseFloat(document.querySelector('.add-to-cart-btn').dataset.price);
+
+qtyPlus.addEventListener('click', () => {
+    qtyValue.textContent = parseInt(qtyValue.textContent) + 1;
+    subtotal.textContent = (price * parseInt(qtyValue.textContent)).toFixed(2) + '€';
+});
+
+qtyMinus.addEventListener('click', () => {
+    let qty = parseInt(qtyValue.textContent);
+    if(qty > 1) {
+        qtyValue.textContent = qty - 1;
+        subtotal.textContent = (price * (qty - 1)).toFixed(2) + '€';
+    }
+});
+</script>
 </body>
 </html>
