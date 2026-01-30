@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require 'DataBase.php';
 require 'Users.php';
@@ -8,28 +8,39 @@ $pdo = $db->startConnection();
 
 $userObj = new User($pdo);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmPassword'];
+if(isset($_SESSION['user_name'])) {
+    header("Location: indexi.php"); // ose dashboard.php
+    exit;
+}
 
-    if($password !== $confirmPassword){
-        $error = "Passwords do not match!";
-    } elseif(strlen($password) < 6){
-        $error = "Password must be at least 6 characters!";
-    } else {
-        $success = $userObj->register($name, $email, $password);
-        if($success){
-            $_SESSION['user_name'] = $name;
-            $_SESSION['user_role'] = 'user';
-            header("Location: login.php");
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if($email === '' || $password === ''){
+        $error = "Please fill in all fields!";
+    }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error = "Please enter a valid email!";
+    }else{
+        $user = $userObj->login($email, $password);
+
+        if($user){
+            $_SESSION['user_id'] = $user['id'] ?? null;
+            $_SESSION['user_name'] = $user['name'] ?? 'User';
+            $_SESSION['user_role'] = $user['role'] ?? 'user';
+
+            if($_SESSION['user_role'] === 'admin') {
+                header("Location: admin_dashboard.php");
+            }else{
+                header("Location: indexi.php");
+            }
             exit;
-        } else {
-            $error = "Email already exists!";
+        }else{
+            $error = "Invalid email or password!";
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,13 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
- <nav>
+    <nav>
         <ul>
         <li class="logo"><a href="#">
             <img src="Logo.png" alt="PawCare Logo">PawCare
@@ -59,13 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <span id="cartCount" class="cart-count">0</span>
     </a>
     </li>
-       <a href="login.html">
         <button type="button">Sign In</button>
-    </a>
         </ul>
     </nav>
-<br><br>
-  
+    <br>
+
+     
 <div id="cartOverlay" class="cart-overlay"></div>
 <div id="cartPanel" class="cart-panel">
   <div class="cart-head">
@@ -95,54 +105,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="lead">Your journey to finding a furry friend</p>
       </div>
       <main class="card">
-        <h2 id="signin">Create An Account</h2>
-        <p class="shkurt">Join us and find your perfect companion</p>
+        <h2 id="signin">Sign In</h2>
+        <p class="shkurt">Welcome back! Please sign in to continue</p>
 
-          <?php
-            if(isset($error)){
-                echo "<p style='color:red; text-align:center;'>$error</p>";
-            }
-            if(isset($success)){
-                echo "<p style='color:green; text-align:center;'>Account created successfully!</p>";
-            }
-            ?>
+        <?php
+        if(isset($error)){
+            echo "<p style='color:red; text-align:center;'>$error</p>";
+        }
+        ?>
 
-        
-
-        <form class="forma" action="register.php" method="POST">
-            <div class="fushat">
-            <label for="email">Full Name</label>
-            <input id="name" name="name" type="text" placeholder="Name">
-          </div>
-
+        <form class="forma" action="login.php" method="POST">
           <div class="fushat">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com">
+            <input id="email" type="email" name="email" placeholder="you@example.com" >
           </div>
 
           <div class="fushat">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="••••••••">
+            <input id="password" type="password" name="password" placeholder="••••••••" >
           </div>
 
-          <div class="fushat">
-            <label for="password">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••">
+          <div class="forgot">
+            <a href="forgotpassword.html" class="linktjt">Forgot password?</a>
           </div>
-          <br>
-          <button class="btn" type="submit">Create Account</button>
 
-          <div class="note">Already have an account?<a href="login.html" class="link-accent">Sign in</a></div>
+          <button class="btn" type="submit">Sign In</button>
+
+          <div class="note">Don't have an account? <a href="register.html" class="link-accent">Create one</a></div>
         </form>
       </main>
 
     </div>
 
-
-
-<footer>
+     <footer>
     <div class="kuti">
-
     <div class="majtas">
         <div class="rreshti">
     <img id="imfoot" src="Logo.png" >
@@ -185,8 +181,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <p> &copy: 2025 PawCare. All rights reserved.Made with love for pets.</p>
 </div>
 </div>
+
 </footer>
+<script src="validatelogin.js"></script>
 <script src="cart.js"></script>
-<script src="validatecreateaccount.js"></script>
 </body>
 </html>
