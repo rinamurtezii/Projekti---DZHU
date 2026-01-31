@@ -27,4 +27,34 @@ class NewsletterModel {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+public function getNewsById(int $id): ?array {
+    $sql = "SELECT id, title, summary, content, image, read_time, created_at
+            FROM news
+            WHERE id = :id
+            LIMIT 1";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row ?: null;
+}
+
+public function getMoreStories(int $excludeId, int $limit = 3): array {
+    $limit = max(1, (int)$limit);
+
+    $sql = "SELECT id, title, summary, image
+            FROM news
+            WHERE id <> :excludeId
+            ORDER BY created_at DESC
+            LIMIT $limit";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindValue(":excludeId", $excludeId, PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }

@@ -91,7 +91,7 @@ $events   = $model->getEvents(3);
             <span class="date"><?= strtoupper(date("M d, Y", strtotime($n['created_at']))) ?></span>
             <h4><?= htmlspecialchars($n['title']) ?></h4>
             <p><?= htmlspecialchars($n['summary']) ?></p>
-            <a href="<?= htmlspecialchars($n['link']) ?>" class="read-more">Read Full Story →</a>
+           <a href="article.php?id=<?= (int)$n['id'] ?>" class="read-more">Read Full Story →</a>
           </div>
         </article>
       <?php endforeach; ?>
@@ -111,7 +111,7 @@ $events   = $model->getEvents(3);
               <span class="read-time"><?= htmlspecialchars($n['read_time']) ?></span>
             <?php endif; ?>
 
-            <a href="<?= htmlspecialchars($n['link']) ?>" class="img-link">
+            <a href="article.php?id=<?= (int)$n['id'] ?>" class="img-link">
               <h4><?= htmlspecialchars($n['title']) ?></h4>
               <p><?= htmlspecialchars($n['summary']) ?></p>
             </a>
