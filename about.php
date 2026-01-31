@@ -1,3 +1,10 @@
+<?php
+require_once 'Team.php';
+
+$teamObj = new Team();
+
+$teamMembers = $teamObj->getAll();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +33,7 @@
         <span id="cartCount" class="cart-count">0</span>
         </a>
         </li>
-       <a href="login.html"><button type="button">Sign In</button></a>
+       <a href="login.php"><button type="button">Sign In</button></a>
         </ul>
     </nav>
     <br>
@@ -95,61 +102,25 @@
 
 
 <section class="sektoriiekipes">
-        <h2>Meet Our Team</h2>
-        <p>We’re more than an organization — we’re a family. Meet the people who help dogs find theirs.</p>
-        <div class="Puntoret">
+    <h2>Meet Our Team</h2>
+    <p>We’re more than an organization — we’re a family. Meet the people who help dogs find theirs.</p>
 
-        <div class="teamc">
-        <div class="team-photo">
-        <img src="personi1.jpg" >
-        </div>
-        <h3>Sara Smith</h3>
-        <p>Veterinary Technician</p>
-      </div>
-
-       <div class="teamc">
-        <div class="team-photo">
-        <img src="personi2.jpg" >
-        </div>
-        <h3>Jane Doe</h3>
-        <p>Animal Care Specialist</p>
-      </div>
-
-      <div class="teamc">
-        <div class="team-photo">
-        <img src="personi3.jpg" >
-        </div>
-        <h3>John Jack</h3>
-        <p>Outreach & Community Engagement Officer</p>
-        </div>
-        <div class="teamc">
-        <div class="team-photo">
-        <img src="personi4.jpg" >
-        </div>
-        <h3>Bob McClaren</h3>
-        <p>Shelter Manager</p>
-      </div>
-      <div class="teamc">
-        <div class="team-photo">
-        <img src="personi5.jpg" >
-        </div>
-        <h3>Blair Waldorf</h3>
-        <p>Social Media & Marketing Manager</p>
-      </div>
-      <div class="teamc">
-        <div class="team-photo">
-          <img src="personi6.jpg" >
-        </div>
-        <h3>Dustin Byers</h3>
-        <p>IT</p>
-      </div>
-      </div>
+    <div class="Puntoret">
+        <?php foreach ($teamMembers as $member): ?>
+            <div class="teamc">
+                <div class="team-photo">
+                    <img src="<?= $member['photo']; ?>">
+                </div>
+                <h3><?= $member['name']; ?></h3>
+                <p><?= $member['role']; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </section>
 
+<!--QITU E BON SUCCESS STORIES KODIN DINAMIK-->
 
 
-
-<!--Success Stories-->
 <section class="success-stories">
     <h2 class="success-title">Success Stories</h2>
     <p class="success-subtitle"> Heartwarming tales from families who found their perfect companions through PawCare</p>
@@ -242,12 +213,13 @@
 <div class="kolonapar">
     <p class="titullipar"><b>Quick Links:</b></p>
     <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Adopt</li>
+        <li><a href="indexi.php" style="text-decoration: none; color: inherit;">Home</a></li>
+        <li><a href="about.php" style="text-decoration: none; color: inherit;">About</a></li>
+        <li><a href="services.php" style="text-decoration: none; color: inherit;">Services</a></li>
+        <li><a href="adopt.php" style="text-decoration: none; color: inherit;">Adopt</a></li>
+        <li><a href="newsletter.php" style="text-decoration: none; color: inherit;">Newsletter</a></li>
     </ul>
-    </div>
+</div>
     <div class="kolonadyt">
     <p class="titullidyt"><b>Contact Us:</b></p>
     <ul>

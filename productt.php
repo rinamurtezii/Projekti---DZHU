@@ -95,10 +95,10 @@ $product = new ProductItem($productData);
     <ul>
         <li class="logo"><a href="index.php"><img src="Logo.png" alt="PawCare Logo">PawCare</a></li>
         <li><a href="index.php">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.php">About</a></li>
         <li><a href="services.php">Services</a></li>
-        <li><a href="adopt.html">Adopt</a></li>
-        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="adopt.php">Adopt</a></li>
+        <li><a href="newsletter.php">Newsletter</a></li>
         <li class="cart-li"><a href="#" id="cartBtn" class="cart-icon">
             <img src="cart-white.png" alt="Cart" class="cart-img">
             <span id="cartCount" class="cart-count">0</span>

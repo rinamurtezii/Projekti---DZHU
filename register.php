@@ -48,18 +48,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <li class="logo"><a href="#">
             <img src="Logo.png" alt="PawCare Logo">PawCare
         </a></li>
-        <li><a href="indexi.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="adopt.html">Adopt</a></li>
-        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="indexi.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="services.php">Services</a></li>
+        <li><a href="adopt.php">Adopt</a></li>
+        <li><a href="newsletter.php">Newsletter</a></li>
     <li class="cart-li">
     <a href="#" id="cartBtn" class="cart-icon">
     <img src="cart-white.png" alt="Cart" class="cart-img">
     <span id="cartCount" class="cart-count">0</span>
     </a>
     </li>
-       <a href="login.html">
+       <a href="login.php">
         <button type="button">Sign In</button>
     </a>
         </ul>
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <br>
           <button class="btn" type="submit">Create Account</button>
 
-          <div class="note">Already have an account?<a href="login.html" class="link-accent">Sign in</a></div>
+          <div class="note">Already have an account?<a href="login.php" class="link-accent">Sign in</a></div>
         </form>
       </main>
 
@@ -158,12 +158,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="kolonapar">
     <p class="titullipar"><b>Quick Links:</b></p>
     <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Adopt</li>
+        <li><a href="indexi.php" style="text-decoration: none; color: inherit;">Home</a></li>
+        <li><a href="about.php" style="text-decoration: none; color: inherit;">About</a></li>
+        <li><a href="services.php" style="text-decoration: none; color: inherit;">Services</a></li>
+        <li><a href="adopt.php" style="text-decoration: none; color: inherit;">Adopt</a></li>
+        <li><a href="newsletter.php" style="text-decoration: none; color: inherit;">Newsletter</a></li>
     </ul>
-    </div>
+</div>
     <div class="kolonadyt">
     <p class="titullidyt"><b>Contact Us:</b></p>
     <ul>
