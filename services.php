@@ -150,7 +150,7 @@ foreach ($categories as $categoryName => $categoryProducts):
             <div class="bottom">
                 <span class="price"><?php echo number_format($product['price'], 2); ?>€</span>
                 <!-- BUTONI BUY NOW -->
-                <a href="product.php?id=<?php echo $product['id']; ?>" class="buy-btn-link">
+                <a href="productt.php?id=<?php echo $product['id']; ?>" class="buy-btn-link">
                     Buy Now
                 </a>
             </div>
