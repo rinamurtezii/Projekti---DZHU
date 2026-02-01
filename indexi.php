@@ -19,7 +19,7 @@ $slider = new DogSlider();
 
 <nav>
     <ul>
-        <li class="logo"><a href="#">
+        <li class="logo"><a href="indexi.php">
             <img src="Logo.png" alt="PawCare Logo">PawCare
         </a></li>
         <li><a href="indexi.php">Home</a></li>
@@ -33,8 +33,25 @@ $slider = new DogSlider();
                 <span id="cartCount" class="cart-count">0</span>
             </a>
         </li>
-        <a href="login.php"><button type="button">Sign In</button></a>
-    </ul>
+        <?php if(isset($_SESSION['user_id'])): ?>
+    <li>
+        <a href="account.php">
+            <button type="button">My Account</button>
+        </a>
+    </li>
+    <li>
+                <a href="logout.php">
+                    <button type="button">Logout</button>
+                </a>
+            </li>
+<?php else: ?>
+    <li>
+        <a href="login.php">
+            <button type="button">Sign In</button>
+        </a>
+    </li>
+<?php endif; ?>
+</ul>
 </nav>
 
 <div id="cartOverlay" class="cart-overlay"></div>

@@ -26,8 +26,8 @@ function e($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 </head>
 <body>
     <nav>
-        <ul>
-        <li class="logo"><a href="#">
+    <ul>
+        <li class="logo"><a href="indexi.php">
             <img src="Logo.png" alt="PawCare Logo">PawCare
         </a></li>
         <li><a href="indexi.php">Home</a></li>
@@ -36,14 +36,26 @@ function e($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
         <li><a href="adopt.php">Adopt</a></li>
         <li><a href="newsletter.php">Newsletter</a></li>
         <li class="cart-li">
-        <a href="#" id="cartBtn" class="cart-icon">
-        <img src="cart-white.png" alt="Cart" class="cart-img">
-        <span id="cartCount" class="cart-count">0</span>
-        </a>
+            <a href="#" id="cartBtn" class="cart-icon">
+                <img src="cart-white.png" alt="Cart" class="cart-img">
+                <span id="cartCount" class="cart-count">0</span>
+            </a>
         </li>
-        <a href="login.php"><button type="button">Sign In</button></a>
-        </ul>
-    </nav>
+        <?php if(isset($_SESSION['user_id'])): ?>
+    <li>
+        <a href="account.php">
+            <button type="button">My Account</button>
+        </a>
+    </li>
+<?php else: ?>
+    <li>
+        <a href="login.php">
+            <button type="button">Sign In</button>
+        </a>
+    </li>
+<?php endif; ?>
+</ul>
+</nav>
     <br>
 
     <div id="cartOverlay" class="cart-overlay"></div>

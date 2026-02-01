@@ -45,5 +45,11 @@ class User{
         }
         return false;
     }
+    public function getUserById($id) {
+    $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE id = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 }
 ?>

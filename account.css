@@ -1,0 +1,415 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+}
+nav{
+    background-color: #ff8a3d;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+nav li:first-child{
+    margin-right: auto;
+}
+nav li:first-child a{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 22px;
+    font-weight: 600; 
+}
+nav button{
+    padding: 8px 18px;
+    border: 2px solid #ff8a3d;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff8a3d;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+nav button:hover{
+    background-color: #ff8a3d;
+    color: white;
+}
+.logo img{
+    height: 24px;
+    width: auto;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo{
+    margin-left: 20px;
+}
+/*Deri ketu ishte dizajnimi i Navigation Bar*/
+/*Fillon Home*/
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 40px;
+    background-color: white;
+    gap: 50px;
+}
+.home .teksti{
+    flex: 1;
+    max-width: 800px;
+}
+.home .imazhi{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.teksti h1{
+    font-family: "Fredoka" , sans-serif;
+    font-size: 5rem;
+    margin-bottom: 15px;
+}
+.teksti p{
+    font-family:"Fredoka" , sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+#butoni{
+    background-color: #ff8a3d;
+    color: white;
+    font-size: 25px;
+    font-family:"Poppins", sans-serif;
+    padding: 30px 45px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: #ff8a3d;
+    cursor: pointer;
+}
+#butoni:hover{
+    background-color: white;
+    color: #ff8a3d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+/*Mbaron Home*/
+/*Fillon footer*/
+footer{
+    background-color: #ff8a3d;
+    color: white;
+    padding: 20px 20px;
+}
+.kuti {
+    column-gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+.rreshti{
+    display: flex;
+    font-family:"Poppins", sans-serif;
+    align-items: center;
+    gap: 10px;
+}
+#imfoot{
+    width: 45px;
+}
+.emri {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.shkrimi{
+    margin-top: 14px;
+    max-width: 450px;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    font-family:"Fredoka" , sans-serif;
+}
+.kolonapar{
+    font-family:"Poppins", sans-serif;
+}
+.kolonapar ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonatret ul{
+    font-size: 25px;
+    list-style-type: none;
+}
+.kolonadyt{
+    font-family:"Poppins", sans-serif;
+}
+.kolonatret{
+    font-family:"Poppins", sans-serif;
+}
+.titullipar{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.titullidyt{
+    font-family:"Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.titullitret{
+    font-family: "Fredoka" , sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+.fundi{
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+.ikonat{
+    display: flex;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 10px;
+    gap: 10px;
+}
+.cart-li{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.cart-img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    cursor: pointer;
+}
+.cart-count{
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    background: white;
+    color: #ff8a3d;
+    border: 2px solid #ff8a3d;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.2;
+}
+.cart-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: none;
+    z-index: 999;
+}
+.cart-overlay.open{
+    display: block;
+}
+.cart-panel{
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 360px;
+    height: 100vh;
+    background: white;
+    box-shadow: -6px 0 18px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+.cart-panel.open{
+    right: 0;
+}
+
+/* Header */
+.cart-head{
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Fredoka", sans-serif;
+}
+
+.cart-close{
+    border: none;
+    background: #ff8a3d;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Items */
+.cart-items{
+    padding: 12px;
+    overflow: auto;
+    flex: 1;
+}
+
+.cart-item{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.cart-item img{
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cart-item h4{
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.cart-item .small{
+    font-size: 12px;
+    color: #666;
+}
+
+.cart-remove{
+    margin-left: auto;
+    border: none;
+    background: #777;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+/* Footer */
+.cart-foot{
+    padding: 12px 16px;
+    border-top: 1px solid #eee;
+    font-family: "Poppins", sans-serif;
+}
+
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-clear{
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background: #ff8a3d;
+    color: white;
+    cursor: pointer;
+    font-family: "Fredoka", sans-serif;
+}
+.cart-clear:hover{
+    opacity: 0.9;
+}
+
+.account-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.account-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: "Fredoka", sans-serif;
+}
+
+.profile-info{
+    margin-bottom: 40px;
+    font-family: "Fredoka", sans-serif;
+}
+
+.profile-info h2 {
+    color: #ff8a3d;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff8a3d;
+    padding-bottom: 5px;
+    font-family: "Fredoka", sans-serif;
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.edit-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color:#ff8a3d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.edit-btn:hover {
+    background-color:#ff8a3d;
+}
+
