@@ -1,8 +1,11 @@
 <?php
 require_once 'Team.php';
+require_once 'SuccessStories.php';
+
+$successObj = new SuccessStories();
+$stories = $successObj->getAll();
 
 $teamObj = new Team();
-
 $teamMembers = $teamObj->getAll();
 ?>
 <!DOCTYPE html>
@@ -118,83 +121,26 @@ $teamMembers = $teamObj->getAll();
     </div>
 </section>
 
-<!--QITU E BON SUCCESS STORIES KODIN DINAMIK-->
-
-
+<!--Pjesa e Success stories-->
 <section class="success-stories">
     <h2 class="success-title">Success Stories</h2>
-    <p class="success-subtitle"> Heartwarming tales from families who found their perfect companions through PawCare</p>
+    <p class="success-subtitle">Heartwarming tales from families who found their perfect companions through PawCare</p>
     <div class="stories-grid">
-        <div class="story-card">
-            <img src="Michael.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Michael Chen</h3>
-                <p class="story-pet">Adopted <b>Max</b></p>
-                <p class="story-text">
-                    “Max has brought so much joy to our family! He is energetic, loving, and has become an irreplaceable part of our lives. Thank you PawCare for this incredible match!”
-                </p>
+        <?php foreach($stories as $story): ?>
+            <div class="story-card">
+                <img src="<?= $story['photo'] ?>" alt="<?= $story['name'] ?>" class="story-avatar">
+                <div class="story-info">
+                    <h3 class="story-name"><?= $story['name'] ?></h3>
+                    <p class="story-pet">Adopted <b><?= $story['pet_name'] ?></b></p>
+                    <p class="story-text"><?= $story['story'] ?></p>
+                </div>
             </div>
-        </div>
-
-        <div class="story-card">
-            <img src="Sarah.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Sarah Johnson</h3>
-                <p class="story-pet">Adopted <b>Simba</b></p>
-                <p class="story-text">
-                    “Simba is the perfect companion for my family! She is affectionate, well-behaved, and has helped me through some tough times. Best decision ever!”
-                </p>
-            </div>
-        </div>
-
-        <div class="story-card">
-            <img src="Emily.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Emily Rodriguez</h3>
-                <p class="story-pet">Adopted <b>Cookie</b></p>
-                <p class="story-text">
-                    “Cookie is my playful shadow—always near me! The adoption process was smooth, and their staff really cared about finding the right match. Couldn’t be happier!”
-                </p>
-            </div>
-        </div>
-        <br><br>
-         <div class="story-card">
-            <img src="Ethan.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Ethan Walker</h3>
-                <p class="story-pet">Adopted <b>Niko</b></p>
-                <p class="story-text">
-                    “Niko adjusted so quickly to our home. He is calm, friendly, and loves cuddles. We’re so grateful to PawCare for helping us find the perfect companion.”
-                </p>
-            </div>
-        </div>
-
-        <div class="story-card">
-            <img src="Olivia.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Olivia Parker</h3>
-                <p class="story-pet">Adopted <b>Sunny</b></p>
-                <p class="story-text">
-                    “Adopting Sunny was the best decision we ever made. She filled our house with warmth and playfulness. Thank you PawCare for making this journey so easy.”
-                </p>
-            </div>
-        </div>
-
-        <div class="story-card">
-            <img src="Jacob.jpeg" alt="User" class="story-avatar">
-            <div class="story-info">
-                <h3 class="story-name">Jacob Mitchell</h3>
-                <p class="story-pet">Adopted <b>Sky</b></p>
-                <p class="story-text">
-                    “Sky has become the heart of our family. He’s loyal, gentle, and always ready for an adventure. PawCare truly matched us with the right dog.”
-                </p>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
+
+
 <br>
-
-
     <footer>
     <div class="kuti">
 
