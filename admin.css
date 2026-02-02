@@ -1043,3 +1043,168 @@ footer{
         grid-column: span 1;
     }
 }
+
+.admin-dogs form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.admin-dogs form label {
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.admin-dogs form input[type="text"],
+.admin-dogs form input[type="number"],
+.admin-dogs form input[type="file"],
+.admin-dogs form select,
+.admin-dogs form textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.admin-dogs form button {
+    width: 120px;
+    padding: 8px 12px;
+    background: #4CAF50;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.admin-dogs form button:hover {
+    background: #45a049;
+}
+
+.admin-dogs form a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.admin-dogs table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.admin-dogs table th,
+.admin-dogs table td {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-dogs table th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.admin-dogs table tr:hover {
+    background: #f9f9f9;
+}
+
+.admin-dogs table img {
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.admin-dogs .success {
+    color: #155724;
+    background: #d4edda;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.admin-dogs .error {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.admin-adoptions table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.admin-adoptions table th,
+.admin-adoptions table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin-adoptions table th {
+    background-color: #f4f4f4;
+}
+
+.admin-adoptions a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 6px;
+}
+
+.admin-adoptions a:hover {
+    text-decoration: underline;
+}
+
+.admin-adoptions form {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+.admin-adoptions form label {
+    display: block;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.admin-adoptions form input,
+.admin-adoptions form select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.admin-adoptions form button, .admin-adoptions form a {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: none;
+}
+
+.admin-adoptions form button {
+    background-color: #28a745;
+    color: white;
+}
+
+.admin-adoptions form a {
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+}

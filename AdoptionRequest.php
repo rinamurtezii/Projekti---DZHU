@@ -64,5 +64,36 @@ class AdoptionRequest {
   $st = $this->conn->prepare($sql);
   return $st->execute([':id' => $id, ':uid' => $userId]);
 }
+
+
+public function getAll(): array {
+    $sql = "
+        SELECT ar.*, d.name AS dog_name, d.image AS dog_image, u.name AS user_name
+        FROM {$this->table} ar
+        LEFT JOIN dogs d ON d.id = ar.dog_id
+        LEFT JOIN users u ON u.id = ar.user_id
+        ORDER BY ar.created_at DESC
+    ";
+    return $this->conn->query($sql)->fetchAll(PDO::FETCH_ASSOC) ?: [];
+}
+
+public function getById(int $id): ?array {
+    $sql = "SELECT * FROM {$this->table} WHERE id=:id LIMIT 1";
+    $st = $this->conn->prepare($sql);
+    $st->execute([':id'=>$id]);
+    return $st->fetch(PDO::FETCH_ASSOC) ?: null;
+}
+
+public function updateStatus(int $id, string $status): bool {
+    $sql = "UPDATE {$this->table} SET status=:status WHERE id=:id";
+    $st = $this->conn->prepare($sql);
+    return $st->execute([':status'=>$status, ':id'=>$id]);
+}
+
+public function delete(int $id): bool {
+    $sql = "DELETE FROM {$this->table} WHERE id=:id";
+    $st = $this->conn->prepare($sql);
+    return $st->execute([':id'=>$id]);
+}
 }
 ?>

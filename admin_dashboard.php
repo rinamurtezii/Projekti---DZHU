@@ -2,23 +2,38 @@
 require_once "admin_guard.php"; 
 require_once "DataBase.php";
 require_once "Users.php";
+require_once 'DogModel.php';
+require_once "AdoptionRequest.php";
 require_once 'Review.php';
 require_once 'Product.php';
 require_once 'Team.php';
 
+function e($v){
+    return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8');
+}
+
 $db = new Database();
 $pdo = $db->startConnection();
 $userObj = new User($pdo);
+$dogObj = new DogModel($pdo);
+$adoptionObj = new AdoptionRequest($pdo);
 $reviewObj = new Review();
+$newsletterObj = new NewsletterModel($pdo); // për news & events
+$successObj = new SuccessStories(); 
 $productObj = new Product();
 $teamObj = new Team();
 
+$section = $_GET['section'] ?? 'welcome';
+$action  = $_POST['action'] ?? $_GET['action'] ?? '';
+$id      = (int)($_POST['id'] ?? $_GET['id'] ?? 0);
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 $message = '';
 $error = '';
 $reviewMessage = '';
 $reviewError = '';
 $editUser = null;
+$editDog = null; 
+$editAdoption = null;
 $editReview = null;
 $editProduct = null;
 $editMember = null;
@@ -65,7 +80,70 @@ if ($action === 'edit') {
     $id = (int)($_GET['id'] ?? 0);
     $editUser = $userObj->find($id);
 }
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
+$id = (int)($_GET['id'] ?? 0);
+//Dogs crud
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($section === 'dogs')) {
+    $action = $_POST['action'] ?? '';
+    $id = (int)($_POST['id'] ?? 0);
+    $name = trim($_POST['name'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+    $age = (int)($_POST['age'] ?? 0);
+    $energy = trim($_POST['energy'] ?? '');
+    $size = trim($_POST['size'] ?? '');
+    $status = trim($_POST['status'] ?? 'available');
+    $image = $_FILES['image']['name'] ?? '';
 
+    // UPLOAD IMAGE
+    if($image){
+        $targetDir = "uploads/dogs/";
+        if(!is_dir($targetDir)) mkdir($targetDir, 0777, true);
+        $targetFile = $targetDir . basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $targetFile);
+        $image = $targetFile;
+    }
+
+    if($action === 'create'){
+        $stmt = $pdo->prepare("INSERT INTO dogs (name, description, age, energy, size, status, image, created_at)
+                               VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([$name, $description, $age, $energy, $size, $status, $image]);
+        $message = "Dog added successfully!";
+    }
+
+    if($action === 'update' && $id > 0){
+        $stmt = $pdo->prepare("UPDATE dogs SET name=?, description=?, age=?, energy=?, size=?, status=?, image=COALESCE(?, image) WHERE id=?");
+        $stmt->execute([$name, $description, $age, $energy, $size, $status, $image ?: null, $id]);
+        $message = "Dog updated successfully!";
+    }
+}
+
+if($action === 'delete' && isset($_GET['id'])){
+    $id = (int)$_GET['id'];
+    $stmt = $pdo->prepare("DELETE FROM dogs WHERE id=?");
+    $stmt->execute([$id]);
+    $message = "Dog deleted successfully!";
+}
+//crudi adoption
+
+$action = $_POST['action'] ?? $_GET['action'] ?? '';
+$id = (int)($_GET['id'] ?? 0);
+
+if($section === 'adoptions' && $action === 'edit' && $id > 0){
+    $editAdoption = $adoptionObj->getById($id);
+}
+
+if($_SERVER['REQUEST_METHOD']==='POST' && $section==='adoptions' && $action==='update' && $id>0){
+    $status = $_POST['status'] ?? 'pending';
+    $adoptionObj->updateStatus($id, $status);
+    header("Location: admin_dashboard.php?section=adoptions");
+    exit;
+}
+
+if($section==='adoptions' && $action==='delete' && $id>0){
+    $adoptionObj->delete($id);
+    header("Location: admin_dashboard.php?section=adoptions");
+    exit;
+}
 // ===================== REVIEWS CRUD =====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($action === 'add' || $action === 'update')) {
     $id = (int)($_POST['id'] ?? 0);
@@ -125,6 +203,11 @@ if(isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'edit'){
 // ===================== GET REVIEWS & USERS =====================
 $reviews = $reviewObj->getAllReviews();
 $users = $userObj->getAllUsers();
+$dogs = $dogObj->getDogs();
+$adoptions = $adoptionObj->getAll();
+$newsItems = $newsletterObj->getAllNews();
+$eventsItems = $newsletterObj->getAllEvents();
+$storiesItems = $successObj->getAll();
 ?>
 
 <!DOCTYPE html>
@@ -263,12 +346,131 @@ $pageTitle = $section === 'welcome' ? 'Dashboard' : ($menu[$section] ?? 'Dashboa
     </div>
 
 <?php elseif($section === 'dogs'): ?>
-    <!-- DOGS SECTION -->
-    <!-- TODO: Add Dogs management form & table -->
+    <div class="admin-dogs">
+        <?php if($message) echo "<p class='success'>" . htmlspecialchars($message) . "</p>"; ?>
+        <form method="POST" action="?section=dogs" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $editDog['id'] ?? ''; ?>">
+            <input type="hidden" name="action" value="<?php echo $editDog ? 'update' : 'create'; ?>">
 
+            <label>Name:</label>
+            <input type="text" name="name" value="<?php echo $editDog['name'] ?? ''; ?>" required>
+
+            <label>Description:</label>
+            <textarea name="description" required><?php echo $editDog['description'] ?? ''; ?></textarea>
+
+            <label>Age:</label>
+            <input type="number" name="age" value="<?php echo $editDog['age'] ?? ''; ?>" required>
+
+            <label>Energy:</label>
+            <input type="text" name="energy" value="<?php echo $editDog['energy'] ?? ''; ?>">
+
+            <label>Size:</label>
+            <input type="text" name="size" value="<?php echo $editDog['size'] ?? ''; ?>">
+
+            <label>Status:</label>
+            <select name="status">
+                <option value="available" <?php if(($editDog['status'] ?? '') === 'available') echo 'selected'; ?>>Available</option>
+                <option value="adopted" <?php if(($editDog['status'] ?? '') === 'adopted') echo 'selected'; ?>>Adopted</option>
+            </select>
+
+            <label>Image:</label>
+            <input type="file" name="image" <?php echo $editDog ? '' : 'required'; ?>>
+            <?php if($editDog && !empty($editDog['image'])): ?>
+                <img src="<?php echo htmlspecialchars($editDog['image']); ?>" style="height:60px;margin-top:5px;">
+            <?php endif; ?>
+
+            <button type="submit"><?php echo $editDog ? 'Update' : 'Add'; ?></button>
+            <?php if($editDog): ?><a href="?section=dogs">Cancel</a><?php endif; ?>
+        </form>
+
+        <table>
+            <thead>
+                <tr><th>ID</th><th>Name</th><th>Age</th><th>Energy</th><th>Size</th><th>Status</th><th>Image</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                <?php foreach($dogs as $dog): ?>
+                <tr>
+                    <td><?php echo $dog['id']; ?></td>
+                    <td><?php echo htmlspecialchars($dog['name']); ?></td>
+                    <td><?php echo $dog['age']; ?></td>
+                    <td><?php echo htmlspecialchars($dog['energy']); ?></td>
+                    <td><?php echo htmlspecialchars($dog['size']); ?></td>
+                    <td><?php echo htmlspecialchars($dog['status']); ?></td>
+                    <td><?php if(!empty($dog['image'])): ?><img src="<?php echo htmlspecialchars($dog['image']); ?>" style="height:40px;"><?php endif; ?></td>
+                    <td>
+                        <a href="?section=dogs&action=edit&id=<?php echo $dog['id']; ?>">Edit</a>
+                        <a href="?section=dogs&action=delete&id=<?php echo $dog['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 <?php elseif($section === 'adoptions'): ?>
-    <!-- ADOPTIONS SECTION -->
-    <!-- TODO: Add Adoptions management form & table -->
+    <div class="admin-adoptions">
+
+    <h2>Adoption Requests</h2>
+
+    <?php if($editAdoption): ?>
+    <form method="POST" action="?section=adoptions&action=update&id=<?= $editAdoption['id'] ?>">
+        <label>Full Name</label>
+        <input type="text" value="<?= e($editAdoption['full_name']) ?>" disabled>
+
+        <label>Dog ID</label>
+        <input type="text" value="<?= e($editAdoption['dog_id']) ?>" disabled>
+
+        <label>Status</label>
+        <select name="status">
+            <option value="pending" <?= $editAdoption['status']==='pending'?'selected':'' ?>>Pending</option>
+            <option value="approved" <?= $editAdoption['status']==='approved'?'selected':'' ?>>Approved</option>
+            <option value="rejected" <?= $editAdoption['status']==='rejected'?'selected':'' ?>>Rejected</option>
+            <option value="cancelled" <?= $editAdoption['status']==='cancelled'?'selected':'' ?>>Cancelled</option>
+        </select>
+
+        <button type="submit">Update Status</button>
+        <a href="?section=adoptions">Cancel</a>
+    </form>
+    <?php endif; ?>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Dog ID</th>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($adoptions as $ad): ?>
+            <tr>
+                <td><?= $ad['id'] ?></td>
+                <td><?= e($ad['dog_id']) ?></td>
+                <td><?= e($ad['user_id']) ?></td>
+                <td><?= e($ad['full_name']) ?></td>
+                <td><?= e($ad['phone']) ?></td>
+                <td><?= e($ad['address']) ?></td>
+                <td><?= e($ad['email']) ?></td>
+                <td><?= e($ad['reason']) ?></td>
+                <td><?= ucfirst($ad['status']) ?></td>
+                <td><?= $ad['created_at'] ?></td>
+                <td>
+                    <a href="?section=adoptions&action=edit&id=<?= $ad['id'] ?>">Edit</a>
+                    <a href="?section=adoptions&action=delete&id=<?= $ad['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>
 
 <?php elseif($section === 'reviews'): ?>
     <div class="admin-reviews">
@@ -322,10 +524,174 @@ $pageTitle = $section === 'welcome' ? 'Dashboard' : ($menu[$section] ?? 'Dashboa
 
 <?php elseif($section === 'news'): ?>
     <!-- NEWS SECTION -->
-    <!-- TODO: Add News management form & table -->
+     <div class="admin-news">
+    <h2>Manage News</h2>
+    <?php if($message) echo "<p class='success'>" . htmlspecialchars($message) . "</p>"; ?>
+    <?php if($error) echo "<p class='error'>" . htmlspecialchars($error) . "</p>"; ?>
+
+    <form method="POST" action="?section=news" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $editNews['id'] ?? ''; ?>">
+        <input type="hidden" name="action" value="<?php echo $editNews ? 'update' : 'create'; ?>">
+
+        <label>Title:</label>
+        <input type="text" name="title" value="<?php echo $editNews['title'] ?? ''; ?>" required>
+
+        <label>Summary:</label>
+        <textarea name="summary" rows="2" required><?php echo $editNews['summary'] ?? ''; ?></textarea>
+
+        <label>Content:</label>
+        <textarea name="content" rows="5" required><?php echo $editNews['content'] ?? ''; ?></textarea>
+
+        <label>Image:</label>
+        <input type="file" name="image" <?php echo $editNews ? '' : 'required'; ?>>
+        <?php if($editNews && !empty($editNews['image'])): ?>
+            <img src="<?php echo htmlspecialchars($editNews['image']); ?>" style="height:60px;margin-top:5px;">
+        <?php endif; ?>
+
+        <label>Main Article:</label>
+        <select name="is_main">
+            <option value="1" <?php if(($editNews['is_main'] ?? 0) == 1) echo 'selected'; ?>>Yes</option>
+            <option value="0" <?php if(($editNews['is_main'] ?? 0) == 0) echo 'selected'; ?>>No</option>
+        </select>
+
+        <button type="submit"><?php echo $editNews ? 'Update' : 'Add'; ?></button>
+        <?php if($editNews): ?><a href="?section=news">Cancel</a><?php endif; ?>
+    </form>
+
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Summary</th><th>Main</th><th>Image</th><th>Created At</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            <?php foreach($news as $n): ?>
+            <tr>
+                <td><?= $n['id'] ?></td>
+                <td><?= htmlspecialchars($n['title']) ?></td>
+                <td><?= htmlspecialchars($n['summary']) ?></td>
+                <td><?= $n['is_main'] ? 'Yes' : 'No' ?></td>
+                <td><?php if(!empty($n['image'])): ?><img src="<?= htmlspecialchars($n['image']) ?>" style="height:40px;"><?php endif; ?></td>
+                <td><?= $n['created_at'] ?></td>
+                <td>
+                    <a href="?section=news&action=edit&id=<?= $n['id'] ?>">Edit</a>
+                    <a href="?section=news&action=delete&id=<?= $n['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
 
 <?php elseif($section === 'events'): ?>
     <!-- EVENTS SECTION -->
+     <div class="admin-events">
+    <h2>Manage Events</h2>
+    <?php if($message) echo "<p class='success'>" . htmlspecialchars($message) . "</p>"; ?>
+    <?php if($error) echo "<p class='error'>" . htmlspecialchars($error) . "</p>"; ?>
+
+    <form method="POST" action="?section=events" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $editEvent['id'] ?? ''; ?>">
+        <input type="hidden" name="action" value="<?php echo $editEvent ? 'update' : 'create'; ?>">
+
+        <label>Title:</label>
+        <input type="text" name="title" value="<?php echo $editEvent['title'] ?? ''; ?>" required>
+
+        <label>Description:</label>
+        <textarea name="description" rows="3" required><?php echo $editEvent['description'] ?? ''; ?></textarea>
+
+        <label>Date:</label>
+        <input type="date" name="event_date" value="<?php echo $editEvent['event_date'] ?? ''; ?>" required>
+
+        <label>Image:</label>
+        <input type="file" name="image" <?php echo $editEvent ? '' : 'required'; ?>>
+        <?php if($editEvent && !empty($editEvent['image'])): ?>
+            <img src="<?php echo htmlspecialchars($editEvent['image']); ?>" style="height:60px;margin-top:5px;">
+        <?php endif; ?>
+
+        <button type="submit"><?php echo $editEvent ? 'Update' : 'Add'; ?></button>
+        <?php if($editEvent): ?><a href="?section=events">Cancel</a><?php endif; ?>
+    </form>
+
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Description</th><th>Date</th><th>Image</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            <?php foreach($events as $event): ?>
+            <tr>
+                <td><?= $event['id'] ?></td>
+                <td><?= htmlspecialchars($event['title']) ?></td>
+                <td><?= htmlspecialchars($event['description']) ?></td>
+                <td><?= htmlspecialchars($event['event_date']) ?></td>
+                <td><?php if(!empty($event['image'])): ?><img src="<?= htmlspecialchars($event['image']) ?>" style="height:40px;"><?php endif; ?></td>
+                <td>
+                    <a href="?section=events&action=edit&id=<?= $event['id'] ?>">Edit</a>
+                    <a href="?section=events&action=delete&id=<?= $event['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
+<?php elseif($section === 'news'): ?>
+<div class="admin-news">
+    <h2>Manage News</h2>
+    <?php if($message) echo "<p class='success'>" . htmlspecialchars($message) . "</p>"; ?>
+    <?php if($error) echo "<p class='error'>" . htmlspecialchars($error) . "</p>"; ?>
+
+    <form method="POST" action="?section=news" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $editNews['id'] ?? ''; ?>">
+        <input type="hidden" name="action" value="<?php echo $editNews ? 'update' : 'create'; ?>">
+
+        <label>Title:</label>
+        <input type="text" name="title" value="<?php echo $editNews['title'] ?? ''; ?>" required>
+
+        <label>Summary:</label>
+        <textarea name="summary" rows="2" required><?php echo $editNews['summary'] ?? ''; ?></textarea>
+
+        <label>Content:</label>
+        <textarea name="content" rows="5" required><?php echo $editNews['content'] ?? ''; ?></textarea>
+
+        <label>Image:</label>
+        <input type="file" name="image" <?php echo $editNews ? '' : 'required'; ?>>
+        <?php if($editNews && !empty($editNews['image'])): ?>
+            <img src="<?php echo htmlspecialchars($editNews['image']); ?>" style="height:60px;margin-top:5px;">
+        <?php endif; ?>
+
+        <label>Main Article:</label>
+        <select name="is_main">
+            <option value="1" <?php if(($editNews['is_main'] ?? 0) == 1) echo 'selected'; ?>>Yes</option>
+            <option value="0" <?php if(($editNews['is_main'] ?? 0) == 0) echo 'selected'; ?>>No</option>
+        </select>
+
+        <button type="submit"><?php echo $editNews ? 'Update' : 'Add'; ?></button>
+        <?php if($editNews): ?><a href="?section=news">Cancel</a><?php endif; ?>
+    </form>
+
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Summary</th><th>Main</th><th>Image</th><th>Created At</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            <?php foreach($news as $n): ?>
+            <tr>
+                <td><?= $n['id'] ?></td>
+                <td><?= htmlspecialchars($n['title']) ?></td>
+                <td><?= htmlspecialchars($n['summary']) ?></td>
+                <td><?= $n['is_main'] ? 'Yes' : 'No' ?></td>
+                <td><?php if(!empty($n['image'])): ?><img src="<?= htmlspecialchars($n['image']) ?>" style="height:40px;"><?php endif; ?></td>
+                <td><?= $n['created_at'] ?></td>
+                <td>
+                    <a href="?section=news&action=edit&id=<?= $n['id'] ?>">Edit</a>
+                    <a href="?section=news&action=delete&id=<?= $n['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
     <!-- TODO: Add Events management form & table -->
 
 <?php elseif($section === 'products'): ?>
@@ -414,6 +780,51 @@ $pageTitle = $section === 'welcome' ? 'Dashboard' : ($menu[$section] ?? 'Dashboa
 
 <?php elseif($section === 'stories'): ?>
     <!-- SUCCESS STORIES SECTION -->
+     <div class="admin-stories">
+    <h2>Success Stories</h2>
+    <?php if($message) echo "<p class='success'>" . htmlspecialchars($message) . "</p>"; ?>
+    <?php if($error) echo "<p class='error'>" . htmlspecialchars($error) . "</p>"; ?>
+
+    <form method="POST" action="?section=stories" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $editStory['id'] ?? ''; ?>">
+        <input type="hidden" name="action" value="<?php echo $editStory ? 'update' : 'create'; ?>">
+
+        <label>Title:</label>
+        <input type="text" name="title" value="<?php echo $editStory['title'] ?? ''; ?>" required>
+
+        <label>Content:</label>
+        <textarea name="content" rows="4" required><?php echo $editStory['content'] ?? ''; ?></textarea>
+
+        <label>Image:</label>
+        <input type="file" name="image" <?php echo $editStory ? '' : 'required'; ?>>
+        <?php if($editStory && !empty($editStory['image'])): ?>
+            <img src="<?php echo htmlspecialchars($editStory['image']); ?>" style="height:60px;margin-top:5px;">
+        <?php endif; ?>
+
+        <button type="submit"><?php echo $editStory ? 'Update' : 'Add'; ?></button>
+        <?php if($editStory): ?><a href="?section=stories">Cancel</a><?php endif; ?>
+    </form>
+
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Title</th><th>Content</th><th>Image</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            <?php foreach($stories as $s): ?>
+            <tr>
+                <td><?= $s['id'] ?></td>
+                <td><?= htmlspecialchars($s['title']) ?></td>
+                <td><?= htmlspecialchars($s['content']) ?></td>
+                <td><?php if(!empty($s['image'])): ?><img src="<?= htmlspecialchars($s['image']) ?>" style="height:40px;"><?php endif; ?></td>
+                <td>
+                    <a href="?section=stories&action=edit&id=<?= $s['id'] ?>">Edit</a>
+                    <a href="?section=stories&action=delete&id=<?= $s['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
     <!-- TODO: Add Success Stories management form & table -->
 <?php endif; ?>
 
