@@ -1,9 +1,11 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once "DataBase.php";
 require_once "DogModel.php";
+require_once "guard.php";
 
 function e($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 
@@ -38,12 +40,15 @@ $email     = trim($_POST['email'] ?? '');
 $reason    = trim($_POST['reason'] ?? '');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-  if ($full_name === '' || mb_strlen($full_name) < 3) $errors[] = "Full Name must be at least 3 characters";
-  if ($phone === '' || !preg_match('/^[0-9+\-\s]{7,}$/', $phone)) $errors[] = "Phone Number is not valid";
-  if ($address === '' || mb_strlen($address) < 5) $errors[] = "The home address provided is too short";
-  if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Email is not valid";
-  if ($reason === '' || mb_strlen($reason) < 10) $errors[] = "Reason must be at least 10 characters";
+  if (!is_logged_in()) {
+    $errors[] = "You must be signed in to submit an adoption application.";
+  } else {
+    if ($full_name === '' || mb_strlen($full_name) < 3) $errors[] = "Full Name must be at least 3 characters";
+    if ($phone === '' || !preg_match('/^[0-9+\-\s]{7,}$/', $phone)) $errors[] = "Phone Number is not valid";
+    if ($address === '' || mb_strlen($address) < 5) $errors[] = "The home address provided is too short";
+    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Email is not valid";
+    if ($reason === '' || mb_strlen($reason) < 10) $errors[] = "Reason must be at least 10 characters";
+  }
 
   if (empty($errors)) {
     $stmt = $conn->prepare("
@@ -61,9 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     header("Location: sukses.html");
     exit;
-
-
-    $full_name = $phone = $address = $email = $reason = '';
   }
 }
 ?>

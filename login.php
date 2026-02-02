@@ -8,7 +8,7 @@ $pdo = $db->startConnection();
 
 $userObj = new User($pdo);
 
-if(isset($_SESSION['user_name'])) {
+if(isset($_SESSION['user_id'])) {
     header("Location: indexi.php"); // ose dashboard.php
     exit;
 }
@@ -24,17 +24,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }else{
         $user = $userObj->login($email, $password);
 
-        if($user){
-            $_SESSION['user_id'] = $user['id'] ?? null;
-            $_SESSION['user_name'] = $user['name'] ?? 'User';
-            $_SESSION['user_role'] = $user['role'] ?? 'user';
+    if($user){
+    $_SESSION['user_id'] = $user['id'] ?? null;
+    $_SESSION['user_name'] = $user['name'] ?? 'User';
+    $_SESSION['user_role'] = $user['role'] ?? 'user';
 
-            if($_SESSION['user_role'] === 'admin') {
-                header("Location: admin_dashboard.php");
-            }else{
-                header("Location: indexi.php");
-            }
-            exit;
+    $return = $_GET['return'] ?? 'indexi.php';
+
+    if($_SESSION['user_role'] === 'admin') {
+        header("Location: admin_dashboard.php");
+    }else{
+        header("Location: " . $return);
+    }
+    exit;
         }else{
             $error = "Invalid email or password!";
         }
@@ -109,6 +111,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <p class="shkurt">Welcome back! Please sign in to continue</p>
 
         <?php
+        if (!empty($_SESSION['flash_error'])) {
+          echo "<p style='color:red; text-align:center;'>" . htmlspecialchars($_SESSION['flash_error']) . "</p>";
+          unset($_SESSION['flash_error']);
+        }
+
         if(isset($error)){
             echo "<p style='color:red; text-align:center;'>$error</p>";
         }
