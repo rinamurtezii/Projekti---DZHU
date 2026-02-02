@@ -57,5 +57,10 @@ class Review{
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+    public function find($id){
+    $stmt = $this->conn->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+    $stmt->execute([$id]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 }
 ?>

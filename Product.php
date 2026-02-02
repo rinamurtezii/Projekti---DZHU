@@ -66,5 +66,8 @@ class Product {
         $stmt = $this->conn->prepare("DELETE FROM {$this->table} WHERE id=:id");
         return $stmt->execute([':id' => $id]);
     }
+    public function find($id){
+    return $this->getProductById($id);
+}
 }
 ?>
