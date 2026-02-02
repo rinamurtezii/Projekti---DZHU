@@ -19,6 +19,8 @@ $pdo = $db->startConnection();
 
 $userObj = new User($pdo);
 $user = $userObj->getUserById($_SESSION['user_id']);
+$editProfile = isset($_GET['editProfile']) && $_GET['editProfile'] == 1;
+
 
 $reqObj = new AdoptionRequest($pdo);
 $userId = (int)$_SESSION['user_id'];
@@ -109,8 +111,41 @@ $myRequests = $reqObj->getAllByUser($userId);
         <p><b>Name:</b> <?= e($user['name']) ?></p>
         <p><b>Email:</b> <?= e($user['email']) ?></p>
         <p><b>Role:</b> <?= e($user['role']) ?></p>
-        <a href="edit_profile.php" class="edit-btn">Edit Profile</a>
+        <a href="account.php?editProfile=1#editProfileForm" class="edit-btn">Edit Profile</a>
     </div>
+
+    <?php if ($editProfile): ?>
+<hr style="margin:20px 0;">
+
+<h2 id="editProfileForm">Edit Profile</h2>
+
+<form method="POST" action="update_profile.php" class="edit-form" style="margin-top:14px;">
+    <label>Name</label>
+    <input name="name" value="<?= e($user['name']) ?>" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="<?= e($user['email']) ?>" required>
+
+    <button type="submit" name="update_info" class="edit-btn">Save Changes</button>
+</form>
+
+<form method="POST" action="update_profile.php" class="edit-form" style="margin-top:14px;">
+    <label>Current Password</label>
+    <input type="password" name="current_password" required>
+
+    <label>New Password</label>
+    <input type="password" name="new_password" required>
+
+    <button type="submit" name="update_password" class="edit-btn">Change Password</button>
+</form>
+
+<a href="account.php" class="edit-btn" style="margin-top:10px; display:inline-block; font-family:'Fredoka', sans-serif;">
+    Cancel
+</a>
+
+<hr style="margin:22px 0;">
+<?php endif; ?>
+
 
     <div class="profile-info" style="margin-top:22px;">
     <h2>Dogs you’ve applied for</h2>
@@ -137,7 +172,7 @@ $myRequests = $reqObj->getAllByUser($userId);
             <textarea name="reason" rows="4" required><?= e($editReq['reason']) ?></textarea>
 
             <div class="form-actions">
-            <button type="submit" class="edit-btn">Update</button>
+            <button type="submit" class="edit-btn" style="font-family:'Fredoka', sans-serif;">Update</button>
             <a href="account.php" class="edit-btn">Cancel</a>
             </div>
 

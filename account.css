@@ -435,7 +435,6 @@ button.action-link{
   margin: 10px 0 6px;
   font-weight: 600;
 }
-
 .edit-form input,
 .edit-form textarea{
   width: 100%;
@@ -458,3 +457,68 @@ button.action-link{
   margin-top: 12px;
   align-items: center;
 }
+#editProfileForm {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    color: #ff8a3d;
+    border-bottom: 2px solid #ff8a3d;
+    padding-bottom: 5px;
+}
+
+#editProfileForm ~ .edit-form {
+    max-width: 520px;
+    margin-top: 12px;
+    font-family: "Fredoka", sans-serif;
+}
+
+#editProfileForm ~ .edit-form label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 600;
+    font-family: "Fredoka", sans-serif;
+}
+
+#editProfileForm ~ .edit-form input,
+#editProfileForm ~ .edit-form textarea {
+    width: 100%;
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#editProfileForm ~ .edit-form textarea {
+    resize: vertical;
+}
+
+#editProfileForm ~ .edit-form button,
+#editProfileForm ~ .edit-form a.edit-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #ff8a3d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Fredoka", sans-serif;
+}
+
+#editProfileForm ~ .edit-form button:hover,
+#editProfileForm ~ .edit-form a.edit-btn:hover {
+    opacity: 0.9;
+}
+
+#editProfileForm ~ .edit-form a.edit-btn {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+

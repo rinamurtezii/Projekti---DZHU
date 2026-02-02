@@ -50,6 +50,25 @@ class User{
     $stmt->execute([$id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+public function updateNameEmail($id, $name, $email) {
+    $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE email = ? AND id != ?");
+    $stmt->execute([$email, $id]);
+    if($stmt->rowCount() > 0){
+        return false; 
+    }
+
+    $stmt = $this->conn->prepare("UPDATE $this->table SET name = ?, email = ? WHERE id = ?");
+    return $stmt->execute([$name, $email, $id]);
+}
+public function updatePassword($id, $newPassword) {
+    
+    $hashed = password_hash($newPassword, PASSWORD_DEFAULT);
+
+    
+    $stmt = $this->conn->prepare("UPDATE $this->table SET password = ? WHERE id = ?");
+    return $stmt->execute([$hashed, $id]);
+}
+
 
 }
 ?>
