@@ -52,11 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if (empty($errors)) {
     $stmt = $conn->prepare("
-      INSERT INTO adoption_requests (dog_id, full_name, phone, address, email, reason, status)
-      VALUES (:dog_id, :full_name, :phone, :address, :email, :reason, 'pending')
+      INSERT INTO adoption_requests (dog_id, user_id, full_name, phone, address, email, reason, status)
+      VALUES (:dog_id, :user_id, :full_name, :phone, :address, :email, :reason, 'pending')
     ");
     $stmt->execute([
       ':dog_id'    => $dog['id'],
+      ':user_id' => (int)$_SESSION['user_id'],
       ':full_name' => $full_name,
       ':phone'     => $phone,
       ':address'   => $address,
