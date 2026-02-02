@@ -213,13 +213,215 @@ $events = $pdo ? $pdo->query("SELECT * FROM events ORDER BY id ASC")->fetchAll(P
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PawCare - Admin</title>
-<link rel="stylesheet" href="admin.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  background:#f9f9f9;
+  color:#333;
+  font-family:'Poppins',sans-serif;
+}
+h1,h2,h3,h4{
+  font-family:'Fredoka',sans-serif;
+  margin:0 0 10px 0;
+  color:#222;
+}
+a{ color:inherit; text-decoration:none; }
+
+.container{
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 18px;
+}
+
+.admin-shell{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:22px;
+  align-items:start;
+}
+
+.admin-aside{
+  position:sticky;
+  top:20px;
+}
+
+.admin-aside-card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.admin-avatar{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#f3f3f3;
+  overflow:hidden;
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+}
+.admin-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.admin-meta .admin-name{
+  margin:0;
+  font-size:18px;
+  font-weight:600;
+  font-family:'Fredoka',sans-serif;
+}
+.admin-meta .admin-role{
+  margin:2px 0 0;
+  font-size:13px;
+  opacity:.65;
+}
+
+.admin-menu{
+  background:#fff;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.admin-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 12px;
+  border-radius:12px;
+  color:#222;
+  font-weight:500;
+  transition:.15s ease;
+}
+.admin-link:hover{ background:#f6f6f6; }
+
+.admin-link.active{
+  background:#fff3ea;
+  color:#c85a12;
+  outline:2px solid rgba(255,138,61,0.25);
+}
+
+.admin-sep{
+  height:1px;
+  background:rgba(0,0,0,0.06);
+  margin:10px 6px;
+}
+
+.admin-link.logout{
+  color:#b00020;
+}
+.admin-link.logout:hover{
+  background:rgba(176,0,32,0.08);
+}
+
+.admin-main-head{
+  background:#fff;
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  margin-bottom:14px;
+}
+.admin-main-head h1{
+  margin:0;
+  font-size:22px;
+}
+.admin-sub{
+  margin:6px 0 0;
+  opacity:.7;
+  font-size:14px;
+}
+
+.admin-card{
+  background:#fff;
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  min-height:420px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'Poppins',sans-serif;
+  margin-top:10px;
+}
+th,td{
+  text-align:left;
+  padding:12px 10px;
+  border-bottom:1px solid #eee;
+}
+th{
+  font-family:'Fredoka',sans-serif;
+  font-weight:600;
+  font-size:15px;
+  background:#fff3ea;
+  color:#c85a12;
+}
+tr:hover{ background:#fff7f0; }
+
+label{
+  font-family:'Fredoka',sans-serif;
+  font-weight:500;
+  display:block;
+  margin-bottom:5px;
+}
+input,select,textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+}
+button{
+  padding:10px 18px;
+  background:#ff8a3d;
+  color:#fff;
+  font-family:'Fredoka',sans-serif;
+  font-weight:600;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s ease;
+  margin-top:10px;
+}
+button:hover{ background:#e6752e; }
+
+.success{
+  background:#daf5d7;
+  color:#3d7d3d;
+  padding:10px 14px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+.error{
+  background:#fddede;
+  color:#b00020;
+  padding:10px 14px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+@media (max-width:980px){
+  .admin-shell{ grid-template-columns:1fr; }
+  .admin-aside{ position:static; }
+}
+</style>
+
 </head>
 <body>
-
 
 <div class="container">
 <?php
@@ -553,15 +755,14 @@ $pageTitle = $section === 'welcome' ? 'Dashboard' : ($menu[$section] ?? 'Dashboa
         <input type="text" name="name" value="<?php echo $editMember['name'] ?? ''; ?>" required>
         <label>Role:</label>
         <input type="text" name="role" value="<?php echo $editMember['role'] ?? ''; ?>" required>
-        <label>Image:</label>
-        <input type="file" name="image" <?php echo $editMember ? '' : 'required'; ?>>
-        <?php if($editMember && !empty($editMember['image'])): ?><img src="<?php echo htmlspecialchars($editMember['image']); ?>" style="height:60px;margin-top:5px;"><?php endif; ?>
         <button type="submit"><?php echo $editMember ? 'Update' : 'Add'; ?></button>
-        <?php if($editMember): ?><a href="?section=team">Cancel</a><?php endif; ?>
+        <?php if($editMember): ?>
+            <a href="?section=team" style="margin-left:10px;">Cancel</a>
+        <?php endif; ?>
     </form>
 
     <table>
-        <thead><tr><th>ID</th><th>Name</th><th>Role</th><th>Image</th><th>Actions</th></tr></thead>
+        <thead><tr><th>ID</th><th>Name</th><th>Role</th><th><th>Actions</th></tr></thead>
         <tbody>
         <?php foreach($teamMembers as $member): ?>
             <tr>
