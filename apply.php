@@ -86,34 +86,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <nav>
     <ul>
-        <li class="logo"><a href="indexi.php">
-            <img src="Logo.png" alt="PawCare Logo">PawCare
-        </a></li>
+        <li class="logo">
+            <a href="indexi.php">
+                <img src="Logo.png" alt="PawCare Logo">PawCare
+            </a>
+        </li>
+
         <li><a href="indexi.php">Home</a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="services.php">Services</a></li>
         <li><a href="adopt.php">Adopt</a></li>
         <li><a href="newsletter.php">Newsletter</a></li>
+
         <li class="cart-li">
             <a href="#" id="cartBtn" class="cart-icon">
                 <img src="cart-white.png" alt="Cart" class="cart-img">
                 <span id="cartCount" class="cart-count">0</span>
             </a>
         </li>
+
         <?php if(isset($_SESSION['user_id'])): ?>
-    <li>
-        <a href="account.php">
-            <button type="button">My Account</button>
-        </a>
-    </li>
-<?php else: ?>
-    <li>
-        <a href="login.php">
-            <button type="button">Sign In</button>
-        </a>
-    </li>
-<?php endif; ?>
-</ul>
+
+            <?php if(($_SESSION['user_role'] ?? 'user') === 'admin'): ?>
+                <li>
+                    <a href="admin_dashboard.php">
+                        <button type="button">Admin Dashboard</button>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="account.php">
+                        <button type="button">My Account</button>
+                    </a>
+                </li>
+            <?php endif; ?>
+
+            <li>
+                <a href="logout.php">
+                    <button type="button">Logout</button>
+                </a>
+            </li>
+
+        <?php else: ?>
+
+            <li>
+                <a href="login.php">
+                    <button type="button">Sign In</button>
+                </a>
+            </li>
+
+        <?php endif; ?>
+    </ul>
 </nav>
 
 <br>
