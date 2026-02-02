@@ -20,5 +20,4 @@ class DogModel {
     $dog = $stmt->fetch(PDO::FETCH_ASSOC);
     return $dog ?: null;
 }
-
 }

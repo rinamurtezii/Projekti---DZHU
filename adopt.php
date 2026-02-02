@@ -82,6 +82,12 @@ function e($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
         <?php endif; ?>
     </ul>
 </nav>
+<?php if (isset($_GET['success']) && $_GET['success'] == '1'): ?>
+  <script>
+    alert("Application submitted successfully! We will get back to you shortly.");
+  </script>
+<?php endif; ?>
+
     <br>
 
     <div id="cartOverlay" class="cart-overlay"></div>

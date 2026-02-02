@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       ':reason'    => $reason
     ]);
 
-    header("Location: sukses.html");
+    header("Location: adopt.php?success=1");
     exit;
   }
 }
