@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -52,25 +53,58 @@ $pageCss = $cssMap[$id] ?? "article.css";
 <body>
 
 <nav>
-  <ul>
-    <li class="logo"><a href="#">
-      <img src="Logo.png" alt="PawCare Logo">PawCare
-    </a></li>
-    <li><a href="indexi.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="adopt.html">Adopt</a></li>
-    <li><a href="newsletter.php">Newsletter</a></li>
+    <ul>
+        <li class="logo">
+            <a href="indexi.php">
+                <img src="Logo.png" alt="PawCare Logo">PawCare
+            </a>
+        </li>
 
-    <li class="cart-li">
-      <a href="#" id="cartBtn" class="cart-icon">
-        <img src="cart-white.png" alt="Cart" class="cart-img">
-        <span id="cartCount" class="cart-count">0</span>
-      </a>
-    </li>
+        <li><a href="indexi.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="services.php">Services</a></li>
+        <li><a href="adopt.php">Adopt</a></li>
+        <li><a href="newsletter.php">Newsletter</a></li>
 
-    <a href="login.php"><button type="button">Sign In</button></a>
-  </ul>
+        <li class="cart-li">
+            <a href="#" id="cartBtn" class="cart-icon">
+                <img src="cart-white.png" alt="Cart" class="cart-img">
+                <span id="cartCount" class="cart-count">0</span>
+            </a>
+        </li>
+
+        <?php if(isset($_SESSION['user_id'])): ?>
+
+            <?php if(($_SESSION['user_role'] ?? 'user') === 'admin'): ?>
+                <li>
+                    <a href="admin_dashboard.php">
+                        <button type="button">Admin Dashboard</button>
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="account.php">
+                        <button type="button">My Account</button>
+                    </a>
+                </li>
+            <?php endif; ?>
+
+            <li>
+                <a href="logout.php">
+                    <button type="button">Logout</button>
+                </a>
+            </li>
+
+        <?php else: ?>
+
+            <li>
+                <a href="login.php">
+                    <button type="button">Sign In</button>
+                </a>
+            </li>
+
+        <?php endif; ?>
+    </ul>
 </nav>
 
 <br>
@@ -109,9 +143,18 @@ $pageCss = $cssMap[$id] ?? "article.css";
       <img src="<?= htmlspecialchars($article['image']) ?>" alt="<?= htmlspecialchars($article['title'] ?? '') ?>" class="article-image">
     <?php endif; ?>
 
-    <?php
-      echo $article['content'] ?? '';
-    ?>
+  <?php
+$content = trim((string)($article['content'] ?? ''));
+$summary = trim((string)($article['summary'] ?? ''));
+
+if ($content !== '') {
+    echo $content; // shfaq HTML (p.sh. <p>, <img>, <ul>)
+} else {
+    echo "<p>" . htmlspecialchars($summary, ENT_QUOTES, 'UTF-8') . "</p>";
+}
+?>
+
+
 
   </div>
 
@@ -150,14 +193,15 @@ $pageCss = $cssMap[$id] ?? "article.css";
     </div>
 
     <div class="kolonapar">
-      <p class="titullipar"><b>Quick Links:</b></p>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Adopt</li>
-      </ul>
-    </div>
+    <p class="titullipar"><b>Quick Links:</b></p>
+    <ul>
+        <li><a href="indexi.php" style="text-decoration: none; color: inherit;">Home</a></li>
+        <li><a href="about.php" style="text-decoration: none; color: inherit;">About</a></li>
+        <li><a href="services.php" style="text-decoration: none; color: inherit;">Services</a></li>
+        <li><a href="adopt.php" style="text-decoration: none; color: inherit;">Adopt</a></li>
+        <li><a href="newsletter.php" style="text-decoration: none; color: inherit;">Newsletter</a></li>
+    </ul>
+</div>
 
     <div class="kolonadyt">
       <p class="titullidyt"><b>Contact Us:</b></p>

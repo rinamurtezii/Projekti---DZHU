@@ -9,9 +9,14 @@ $pdo = $db->startConnection();
 $userObj = new User($pdo);
 
 if(isset($_SESSION['user_id'])) {
-    header("Location: indexi.php"); // ose dashboard.php
+    if(($_SESSION['user_role'] ?? 'user') === 'admin'){
+        header("Location: admin_dashboard.php");
+    } else {
+        header("Location: indexi.php");
+    }
     exit;
 }
+
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $email = trim($_POST['email'] ?? '');
@@ -56,9 +61,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-        <li class="logo"><a href="#">
+   
+<nav>
+    <ul>
+        <li class="logo"><a href="indexi.php">
             <img src="Logo.png" alt="PawCare Logo">PawCare
         </a></li>
         <li><a href="indexi.php">Home</a></li>
@@ -66,18 +72,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <li><a href="services.php">Services</a></li>
         <li><a href="adopt.php">Adopt</a></li>
         <li><a href="newsletter.php">Newsletter</a></li>
-    <li class="cart-li">
-    <a href="#" id="cartBtn" class="cart-icon">
-    <img src="cart-white.png" alt="Cart" class="cart-img">
-    <span id="cartCount" class="cart-count">0</span>
-    </a>
+        <li class="cart-li">
+            <a href="#" id="cartBtn" class="cart-icon">
+                <img src="cart-white.png" alt="Cart" class="cart-img">
+                <span id="cartCount" class="cart-count">0</span>
+            </a>
+        </li>
+        <?php if(isset($_SESSION['user_id'])): ?>
+    <li>
+        <a href="account.php">
+            <button type="button">My Account</button>
+        </a>
     </li>
-        <button type="button">Sign In</button>
-        </ul>
-    </nav>
+    <li>
+                <a href="logout.php">
+                    <button type="button">Logout</button>
+                </a>
+            </li>
+<?php else: ?>
+    <li>
+        <a href="login.php">
+            <button type="button">Sign In</button>
+        </a>
+    </li>
+<?php endif; ?>
+</ul>
+</nav>
     <br>
 
-     
 <div id="cartOverlay" class="cart-overlay"></div>
 <div id="cartPanel" class="cart-panel">
   <div class="cart-head">
