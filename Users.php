@@ -45,12 +45,20 @@ class User{
         }
         return false;
     }
+    public function getAllUsers(){
+        $stmt = $this->conn->prepare("SELECT id, name, email, role, created_at FROM $this->table ORDER BY id DESC");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function getUserById($id) {
     $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE id = ?");
     $stmt->execute([$id]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
-}
-public function updateNameEmail($id, $name, $email) {
+    }
+    public function find($id){
+        return $this->getUserById($id);
+    }
+    public function updateNameEmail($id, $name, $email) {
     $stmt = $this->conn->prepare("SELECT * FROM $this->table WHERE email = ? AND id != ?");
     $stmt->execute([$email, $id]);
     if($stmt->rowCount() > 0){
@@ -60,14 +68,22 @@ public function updateNameEmail($id, $name, $email) {
     $stmt = $this->conn->prepare("UPDATE $this->table SET name = ?, email = ? WHERE id = ?");
     return $stmt->execute([$name, $email, $id]);
 }
-public function updatePassword($id, $newPassword) {
-    
+    public function updatePassword($id, $newPassword) {
     $hashed = password_hash($newPassword, PASSWORD_DEFAULT);
-
-    
     $stmt = $this->conn->prepare("UPDATE $this->table SET password = ? WHERE id = ?");
     return $stmt->execute([$hashed, $id]);
-}
+    }
+    public function updateRole($id, $role){
+        $stmt = $this->conn->prepare("UPDATE $this->table SET role=? WHERE id=?");
+        return $stmt->execute([$role, $id]);
+    }
+    public function deleteUser($id){
+        if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $id){
+            return false;
+        }
+    $stmt = $this->conn->prepare("DELETE FROM $this->table WHERE id=?");
+        return $stmt->execute([$id]);
+    } 
 
 
 }
