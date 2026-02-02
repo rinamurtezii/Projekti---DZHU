@@ -161,17 +161,18 @@ footer{
 
 .news-box {
   max-width: 1700px;
-  margin: auto;
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: 2.2fr 1fr;
-  gap: 30px;
+   width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
 .main-news {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+    flex: 2 1 60%; /* kryesore zë më shumë hapësirë */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .news-card {
@@ -228,22 +229,25 @@ footer{
 }
 
 .side-news {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .side-item {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+     display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .side-item img {
-  width: 220px;
-  height: 150px;
-  border-radius: 14px;
-  object-fit: cover;
+  width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 14px;
+    object-fit: cover;
 }
 
 .side-item h4 {
@@ -497,7 +501,7 @@ footer{
 .news-title{
     margin-bottom: 10px;
   font-family: "Fredoka", sans-serif;
-  font-size: 35px;
+  font-size: clamp(24px, 4vw, 35px);
   color: #111827;
 }
 .news-sub{
@@ -559,4 +563,22 @@ footer{
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
+}
+@media (max-width: 1024px) {
+    .news-box {
+        flex-direction: column; 
+    }
+    .main-news, .side-news {
+        flex: 1 1 100%; 
+    }
+}
+@media (max-width: 768px) {
+    .side-item {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+    }
+    .side-item img {
+        max-width: 100%;
+    }
 }

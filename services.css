@@ -132,9 +132,24 @@ nav button:hover{
     align-items: center;
     gap: 15px;
     padding-left: 167px;
-    
     margin-top: 10px;  
     margin-bottom: 10px;  
+}
+@media (max-width: 992px){
+    .section-title{
+        padding-left: 20px;  
+        flex-wrap: wrap;   
+    }
+}
+@media (max-width: 768px){
+    .section-title{
+        padding-left: 10px;
+        justify-content: center; 
+        text-align: center;
+    }
+    .title-icon{
+        margin-bottom: 10px;
+    }
 }
 .title-icon{
     width: 55px;
@@ -159,21 +174,37 @@ nav button:hover{
   width: 100%;
   max-width: 1500px;   
   margin: 40px auto;
-  padding: 0 40px;    
+  padding: 0 20px;    
   display: flex;
-  flex-wrap: nowrap;
-  gap: 60px;       
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;       
+  justify-content: center;
 
 }
 .product-card{
-  width: 380px;      
+flex: 1 1 380px;  
+  max-width: 380px;    
   border: 3px solid  rgb(252, 245, 245);
   border-radius: 20px;
   background: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 992px){
+    .product-card{
+        flex: 1 1 45%;
+        max-width: none;
+    }
+}
+@media (max-width: 768px){
+    .product-card{
+        flex: 1 1 100%; 
+    }
+    .products{
+        padding: 0 10px;
+        gap: 15px;
+    }
 }
 .img-box{
   position: relative;
@@ -542,4 +573,29 @@ footer{
 }
 .cart-clear:hover{
     opacity: 0.9;
+}
+@media (max-width: 1200px){
+    .products{
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px){
+    .products{
+        gap: 18px;
+    }
+    .product-card{
+        flex: 1 1 45%; 
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px){
+    .product-card{
+        flex: 1 1 100%; 
+    }
+    .products{
+        padding: 0 10px;
+        gap: 15px;
+    }
 }
