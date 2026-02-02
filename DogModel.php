@@ -20,4 +20,26 @@ class DogModel {
     $dog = $stmt->fetch(PDO::FETCH_ASSOC);
     return $dog ?: null;
 }
+public function create(array $data): bool {
+    $sql = "INSERT INTO dogs (name, description, age, energy, size, status, image, created_at)
+            VALUES (:name, :description, :age, :energy, :size, :status, :image, NOW())";
+    $stmt = $this->conn->prepare($sql);
+    return $stmt->execute($data);
+}
+public function update(int $id, array $data): bool {
+    $sql = "UPDATE dogs SET 
+                name=:name,
+                description=:description,
+                age=:age,
+                energy=:energy,
+                size=:size,
+                status=:status,
+                image=:image,
+                updated_at=NOW()
+            WHERE id=:id";
+    $data['id'] = $id;
+    $stmt = $this->conn->prepare($sql);
+    return $stmt->execute($data);
+}
+
 }

@@ -60,20 +60,13 @@ nav button:hover{
     height: 24px;
     width: auto;
 }
-/*me largu
-.logo a{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}*/
+
 .logo{
     margin-left: 20px;
 }
-/*Fillon pjesa e section our shop*/
 .our-shop{
     text-align: center;
     padding-bottom: 20px;
-    /* nuk ka nevoj border: 1px;*/
 }
 .our-shop h1{
     font-family:"Fredoka" , sans-serif;
@@ -85,11 +78,9 @@ nav button:hover{
     font-size: 24px;
     color: rgb(95, 85, 85);
 }
-/*Fillon pjesa e features*/
+
 .shop{
     background-color: white;
-    /* spo ndryshon asgje
-    justify-content: space-around;*/
     padding-bottom: 20px;
 }
 .features{
@@ -135,7 +126,7 @@ nav button:hover{
     font-size: 16px;
     color: white;
 }
-/*Dog toys and entertainment, Nutritious Dog Food*/
+
 .section-title{
     display: flex;
     align-items: center;
@@ -164,7 +155,6 @@ nav button:hover{
     font-family: "Fredoka", sans-serif;
 }
 
-/*Fillon pjesa e  blerjev*/
 .products{
   width: 100%;
   max-width: 1500px;   
@@ -262,7 +252,6 @@ nav button:hover{
     transform: translateY(-1px);
 }
 
-/*What our costumers say*/
 .testimonials {
   padding-bottom: 45px;
   padding-top: 45px;
@@ -308,7 +297,6 @@ nav button:hover{
   font-size: 17px;
 }
 
-/*Fillon footer*/
 footer{
     background-color: #ff8a3d;
     color: white;
@@ -424,7 +412,6 @@ footer{
     cursor: pointer;
 }
 
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -440,7 +427,6 @@ footer{
     line-height: 1.2;
 }
 
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -452,7 +438,6 @@ footer{
     display: block;
 }
 
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
@@ -470,7 +455,6 @@ footer{
     right: 0;
 }
 
-/* Header */
 .cart-head{
     padding: 16px;
     border-bottom: 1px solid #eee;
@@ -490,7 +474,6 @@ footer{
     cursor: pointer;
 }
 
-/* Items */
 .cart-items{
     padding: 12px;
     overflow: auto;
@@ -535,7 +518,6 @@ footer{
     height: fit-content;
 }
 
-/* Footer */
 .cart-foot{
     padding: 12px 16px;
     border-top: 1px solid #eee;

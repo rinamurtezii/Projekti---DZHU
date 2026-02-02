@@ -66,8 +66,6 @@ nav button:hover{
 .logo{
     margin-left: 20px;
 }
-/*Deri ketu ishte dizajnimi i Navigation Bar*/
-
 footer{
     background-color: #ff8a3d;
     color: white;
@@ -243,11 +241,10 @@ footer{
     text-align: center;
     margin-bottom: 30px;
 }
-/*Success stories*/
 .success-stories{
     padding: 80px 30px;
     text-align: center;
-    background-color: white; /*#fffaf0;*/
+    background-color: white; 
     
 }
 .success-title{
@@ -303,7 +300,7 @@ footer{
     color: #555;
     line-height: 1.5;
 }
-/* Optional decorative quote mark */
+
 .story-card::after{
     content: "❞";
     font-size: 32px;
@@ -312,7 +309,7 @@ footer{
     bottom: 10px;
     right: 15px;
 }
-/* Fillimi i home */
+
 .pawcare {
     width: 100%;
     padding: 60px 0;
@@ -403,19 +400,9 @@ footer{
 .card p{
     font-family: "Poppins", sans-serif;
     color: white;
-   /* color:rgb(95, 85, 85);*/
     font-size: 20px;
     line-height: 1.6;
 }
-
-
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;
@@ -439,7 +426,6 @@ footer{
     cursor: pointer;
 }
 
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -455,7 +441,6 @@ footer{
     line-height: 1.2;
 }
 
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -467,7 +452,6 @@ footer{
     display: block;
 }
 
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
@@ -484,8 +468,6 @@ footer{
 .cart-panel.open{
     right: 0;
 }
-
-/* Header */
 .cart-head{
     padding: 16px;
     border-bottom: 1px solid #eee;
@@ -505,7 +487,6 @@ footer{
     cursor: pointer;
 }
 
-/* Items */
 .cart-items{
     padding: 12px;
     overflow: auto;
@@ -550,7 +531,6 @@ footer{
     height: fit-content;
 }
 
-/* Footer */
 .cart-foot{
     padding: 12px 16px;
     border-top: 1px solid #eee;

@@ -157,7 +157,6 @@ $teamMembers = $teamObj->getAll();
     </div>
 </section>
 
-<!--Pjesa e Success stories-->
 <section class="success-stories">
     <h2 class="success-title">Success Stories</h2>
     <p class="success-subtitle">Heartwarming tales from families who found their perfect companions through PawCare</p>

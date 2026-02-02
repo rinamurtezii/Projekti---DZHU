@@ -450,15 +450,6 @@ footer{
     transform: translateY(-8px);
     box-shadow: 0px 15px 30px rgba(0,0,0,0.25);
 }
-
-
-
-/* =========================
-   CART (Shporta) - SHTESA (IKONË)
-   Vendose NË FUND të rocky.css
-========================= */
-
-/* --- IKONA NE NAVBAR --- */
 .cart-li{
     height: 50px;
     display: flex;
@@ -482,7 +473,6 @@ footer{
     cursor: pointer;
 }
 
-/* Badge numri mbi ikonë */
 .cart-count{
     position: absolute;
     top: 8px;
@@ -498,7 +488,6 @@ footer{
     line-height: 1.2;
 }
 
-/* --- OVERLAY (errësim prapa) --- */
 .cart-overlay{
     position: fixed;
     inset: 0;
@@ -510,7 +499,6 @@ footer{
     display: block;
 }
 
-/* --- PANELI I SHPORTËS (dritare anash) --- */
 .cart-panel{
     position: fixed;
     top: 0;
@@ -527,8 +515,6 @@ footer{
 .cart-panel.open{
     right: 0;
 }
-
-/* Header */
 .cart-head{
     padding: 16px;
     border-bottom: 1px solid #eee;
@@ -547,8 +533,6 @@ footer{
     border-radius: 8px;
     cursor: pointer;
 }
-
-/* Items */
 .cart-items{
     padding: 12px;
     overflow: auto;
@@ -592,8 +576,6 @@ footer{
     cursor: pointer;
     height: fit-content;
 }
-
-/* Footer */
 .cart-foot{
     padding: 12px 16px;
     border-top: 1px solid #eee;

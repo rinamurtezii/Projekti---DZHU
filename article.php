@@ -148,14 +148,11 @@ $content = trim((string)($article['content'] ?? ''));
 $summary = trim((string)($article['summary'] ?? ''));
 
 if ($content !== '') {
-    echo $content; // shfaq HTML (p.sh. <p>, <img>, <ul>)
+    echo $content; 
 } else {
     echo "<p>" . htmlspecialchars($summary, ENT_QUOTES, 'UTF-8') . "</p>";
 }
 ?>
-
-
-
   </div>
 
   <aside class="article-sidebar">

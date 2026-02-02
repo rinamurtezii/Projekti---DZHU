@@ -66,10 +66,6 @@ nav button:hover{
 .logo{
     margin-left: 20px;
 }
-/*Deri ketu ishte dizajnimi i Navigation Bar*/
-
-
-
 .kryesorja{
   display:flex;
   align-items:center;
@@ -172,10 +168,6 @@ nav button:hover{
   color:#ff6b35;
   text-decoration:none;
 }
-
-
-
-/*Fillon footer*/
 footer{
     background-color: #ff8a3d;
     color: white;
@@ -268,9 +260,6 @@ footer{
     margin-right: 10px;
     gap: 10px;
 }
-/*Mbaron footer*/
-
-
 .cart-li{
     height: 50px;
     display: flex;
