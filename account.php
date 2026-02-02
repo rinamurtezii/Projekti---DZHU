@@ -116,9 +116,9 @@ $myRequests = $reqObj->getAllByUser($userId);
     <h2>Dogs you’ve applied for</h2>
 
     <?php if ($editReq): ?>
-        <h3 style="margin-top:12px;">Edit Application</h3>
+        <h3 id="editForm" style="margin-top:12px;">Edit Application</h3>
 
-        <form method="POST" style="margin-top:10px;">
+            <form method="POST" action="account.php#editForm" class="edit-form">
             <input type="hidden" name="req_id" value="<?= (int)$editReq['id'] ?>">
 
             <label>Full Name</label>
@@ -136,8 +136,11 @@ $myRequests = $reqObj->getAllByUser($userId);
             <label>Reason</label>
             <textarea name="reason" rows="4" required><?= e($editReq['reason']) ?></textarea>
 
+            <div class="form-actions">
             <button type="submit" class="edit-btn">Update</button>
-            <a href="account.php" class="edit-btn" style="margin-left:10px;">Cancel</a>
+            <a href="account.php" class="edit-btn">Cancel</a>
+            </div>
+
         </form>
         <hr style="margin:18px 0;">
     <?php endif; ?>
@@ -166,14 +169,12 @@ $myRequests = $reqObj->getAllByUser($userId);
 
                     <td style="padding:10px;">
                         <?php if ($r['status'] === 'pending'): ?>
-                            <a href="account.php?editReq=<?= (int)$r['id'] ?>">Edit</a>
+                            <a class="action-link" href="account.php?editReq=<?= (int)$r['id'] ?>#editForm">Edit</a>
                             |
                             <form method="POST" action="account.php" style="display:inline;">
                             <input type="hidden" name="cancel_id" value="<?= (int)$r['id'] ?>">
-                            <button type="submit" style="background:none;border:none;color:#0000EE;cursor:pointer;padding:0;"
-                             onclick="return confirm('Cancel this application?')">
-                             Cancel
-                             </button>
+                            <button type="submit" class="action-link" onclick="return confirm('Cancel this application?')">
+                            Cancel</button>
                             </form>
                         <?php else: ?>
                             <span style="opacity:.6;">No actions</span>
