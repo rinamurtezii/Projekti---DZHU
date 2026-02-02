@@ -24,8 +24,8 @@ $reqObj = new AdoptionRequest($pdo);
 $userId = (int)$_SESSION['user_id'];
 
 
-if (isset($_GET['cancel'])) {
-    $reqObj->cancelPending((int)$_GET['cancel'], $userId);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancel_id'])) {
+    $reqObj->cancelPending((int)$_POST['cancel_id'], $userId);
     header("Location: account.php");
     exit;
 }
@@ -168,8 +168,13 @@ $myRequests = $reqObj->getAllByUser($userId);
                         <?php if ($r['status'] === 'pending'): ?>
                             <a href="account.php?editReq=<?= (int)$r['id'] ?>">Edit</a>
                             |
-                            <a href="account.php?cancel=<?= (int)$r['id'] ?>"
-                               onclick="return confirm('Cancel this application?')">Cancel</a>
+                            <form method="POST" action="account.php" style="display:inline;">
+                            <input type="hidden" name="cancel_id" value="<?= (int)$r['id'] ?>">
+                            <button type="submit" style="background:none;border:none;color:#0000EE;cursor:pointer;padding:0;"
+                             onclick="return confirm('Cancel this application?')">
+                             Cancel
+                             </button>
+                            </form>
                         <?php else: ?>
                             <span style="opacity:.6;">No actions</span>
                         <?php endif; ?>

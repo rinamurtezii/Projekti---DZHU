@@ -56,10 +56,13 @@ class AdoptionRequest {
     ]);
   }
 
-  public function cancelPending(int $id, int $userId): bool {
-    $sql = "UPDATE {$this->table} SET status='cancelled' WHERE id=:id AND user_id=:uid AND status='pending'";
-    $st = $this->conn->prepare($sql);
-    return $st->execute([':id' => $id, ':uid' => $userId]);
-  }
+ public function cancelPending(int $id, int $userId): bool {
+  $sql = "UPDATE {$this->table}
+          SET status='cancelled'
+          WHERE id=:id AND user_id=:uid AND status='pending'
+          LIMIT 1";
+  $st = $this->conn->prepare($sql);
+  return $st->execute([':id' => $id, ':uid' => $userId]);
+}
 }
 ?>
